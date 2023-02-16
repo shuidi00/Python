@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="btn" type="text" value="10">
+
+<script>
+    // console.log(btn, typeof btn); // input#btn元素对象 "object"
+    // console.log(btn.value, typeof btn.value); // 10 string
+    //
+    // // 字符串转换成布尔值
+    // var str1 = ""  // 空字符串
+    // console.log( Boolean(str1) ); // false
+    // var str2 = "0"
+    // console.log( Boolean(str2) ); // true
+    // var str3 = " "
+    // console.log( Boolean(str3) ); // true
+    // var str4 = "true"
+    // console.log( Boolean(str4) ); // true
+    // var str5 = "false"
+    // console.log( int(str5) ); // true
+    // // 总结：除了空字符串，其他都转换成true
+
+    // 字符串转换成数值
+    var num1 = "100"
+    var num1_new = Number(num1)
+    console.log( num1_new, typeof num1_new ); // 100 "number"
+
+    var num2 = "3.14"
+    var num2_new = Number(num2)
+    console.log( num2_new, typeof num2_new ); // 3.14 "number"
+
+    var num3 = "3.5公斤"
+    var num3_new = Number(num3);
+    console.log( num3_new, typeof num3_new );  // NaN "number"
+    // NaN是一个特殊的数值，是在js中进行数值计算当结果有误时出现的非数字结果
+    // NaN，全称：Not a Number，表示计算结果是非数值
+    // NaN的特点:
+    // 1. 这个关键字也是数值类型  typeof(NaN)  // "number"
+    // 2. NaN无法进行比较和计算，否则结果都是false或者NaN
+
+    // 可以转换
+    console.log( Number("-.5"), Number(".5"), Number("+0.5"), Number("1.5e3") );  // -0.5 0.5 0.5 1500
+    // 不可以转换
+    console.log( Number("..5"), Number("100_200_300"), Number("++2") );  // 不可以转换
+
+    // 总结：除了数值组成的字符串，其他的字符串无法转换成数值.
+
+    // 字符串转换成数组
+    var str1 = "hello"
+    console.log( Array(str1) ); // 自动变成数组的一个成员，相当于 [str1]
+    console.log([str1])
+</script>
+</body>
+</html>

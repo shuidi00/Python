@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    input{
+        width: 40px;
+    }
+    </style>
+</head>
+<body>
+    <input type="text" name="num1" value="0">
+    <select name="oprator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+        <option value="**">**</option>
+    </select>
+    <input type="text" name="num2" value="0">
+    =
+    <input type="text" name="result" value="0">
+    <button id="calc">计算</button>
+<script>
+    // 先获取id=calc的元素
+    // document.querySelector("css选择符")
+    var calc = document.querySelector('#calc');
+    var num1 = document.querySelector('input[name="num1"]');
+    var num2 = document.querySelector('input[name="num2"]');
+    var oprator = document.querySelector('select[name="oprator"]');
+    var result = document.querySelector('input[name="result"]');
+    // 绑定点击效果
+    calc.onclick = function(){
+        console.log("开始计算", `${num1.value}${oprator.value}${num2.value}=`);
+        if(oprator.value === "+"){
+            // 加法运算
+            result.value = parseFloat(num1.value) + parseFloat(num2.value);
+        }else if(oprator.value === "-"){
+            // 减法运算
+            result.value = num1.value - num2.value;
+        }else if(oprator.value === "*"){
+            // 乘法运算
+            result.value = num1.value * num2.value;
+        }else if(oprator.value === "/"){
+            // 除法运算
+            result.value = num1.value / num2.value;
+        }else if(oprator.value === "%"){
+            // 取模运算
+            result.value = num1.value % num2.value;
+        }else if(oprator.value === "**"){
+            // 幂运算
+            result.value = num1.value ** num2.value;
+        }
+
+    }
+</script>
+</body>
+</html>

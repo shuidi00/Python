@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // 打印普通数据
+    // console.log(100);
+    // console.log("A", "C");
+    // console.log(["A", "C"]);
+    // // console.log适用于打印数据，而针对于HTML元素，一般默认会打印文档结构出来
+    // // console.log(document.body);
+    //
+    // // 如果要打印HTML元素的属性信息，使用dir，与python中的dir函数类似。
+    // console.dir(document.body);
+    //
+    // // 清除控制台的内容
+    // console.clear();
+
+    // // 以交互式表格格式打印数组、对象等数据
+    // var data = [
+    //     {id:1, name: '小明'},
+    //     {id:2, name: '小白'},
+    //     {id:3, name: '小黑'},
+    // ]
+    // console.table(data);
+
+
+    // 跟踪统计代码被调用的次数
+    function fn(){
+        console.count("fn函数被调用次数");
+        return "hello"
+    }
+    fn();
+    fn();
+    fn();
+    fn();
+
+</script>
+</body>
+</html>

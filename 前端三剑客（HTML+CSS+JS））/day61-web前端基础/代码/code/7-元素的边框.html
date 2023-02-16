@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .search-btn{
+        width: 546px;
+        margin: 0 auto;
+    }
+    .search-btn:after{
+        content: "";
+        display: block;
+        clear: both;
+        overflow: hidden;
+    }
+    .search-btn input[type="text"]{
+        width: 423px;
+        height: 26px;
+        padding: 2px 44px 2px 17px; /* 上右下左 */
+        border: 2px solid #e2231a;  /* 边框宽度  边框类型 边框颜色 */
+        outline: none;
+        float: left;
+    }
+    .search-btn input[type="text"]::placeholder{
+        font-size: 12px;
+    }
+    .search-btn .btn{
+        width: 58px;
+        height: 34px;
+        line-height: 34px;
+        background-color: #e1251b;
+        outline: none;
+        border: none;
+        float: left;
+    }
+    .search-btn .btn img{
+        width: 20px;
+        height: 20px;
+        vertical-align: sub;
+    }
+    </style>
+</head>
+<body>
+  <div class="search-btn">
+
+      <input type="text" name="" id="" placeholder="家电168热销"><button class="btn"><img src="search.svg" alt=""></button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var d = new Date();  // 获取当前客户端系统的当前时间
+
+    // console.log(d,typeof d); // Thu Jun 23 2022 20:02:01 GMT+0800 (中国标准时间) "object"
+    // // 直接打印日期时间对象，会默认执行对象的toString方法，这个方法类似python中的__str__方法或者__repr__方法。
+
+    // // 直接基于隐式类型转换，获取毫秒时间戳
+    // console.log(d - 0);
+    // console.log(parseInt((d - 0)/1000)); // 获取秒时间戳
+
+    // // 获取毫秒时间戳的方法
+    // console.log(d.getTime());    // 获取时间戳[单位:毫秒,ms]
+    // console.log(Date.now());    // 获取时间戳[单位:毫秒,ms]
+
+    // // 获取年-月-日
+    // console.log(d.getFullYear()); // 获取4位数字表单的年份
+    // console.log(d.getMonth()+1); // 获取一年的第几个月
+    // console.log(d.getDate());  // 一个月中的第几天
+    // console.log(d.getDay());   // 一个星期中的第几天,星期几
+
+    // // 补0函数
+    // let fillzero = (num) => num<10?'0'+num:num;
+    // // 格式化输出日期字符串
+    // console.log(`${d.getFullYear()}-${fillzero(d.getMonth()+1)}-${fillzero(d.getDate())}`)
+
+    // // 获取时分秒
+    // console.log(d.getHours());
+    // console.log(d.getMinutes());
+    // console.log(d.getSeconds());
+    // console.log(d.getMilliseconds()); // 毫秒,1000ms = 1s
+    //
+    // // 获取字符串格式的日期时间
+    // let fillzero = (num) => num<10?'0'+num:num;
+    // var t = `${d.getFullYear()}-${fillzero(d.getMonth()+1)}-${fillzero(d.getDate())} ${fillzero(d.getHours())}:${fillzero(d.getMinutes())}:${fillzero(d.getSeconds())}`
+    // console.log(t);
+
+
+    // // Date本身提供的其他格式化日期时间
+    // console.log(d.toLocaleDateString());  // 2020/10/17
+    // console.log(d.toLocaleTimeString());  // 上午11:38:13
+    // console.log(d.toLocaleString());      // 2020/10/17 上午11:38:32
+    console.log(d.toJSON());      // 2022-06-23T12:12:48.930Z
+    // 快速格式化一个日期时间字符串
+    let ret = d.toJSON().replaceAll(/[ZT]/g, " ")
+    console.log(ret)
+
+
+    // 计算2个时间的相差的毫米数
+    var date1 = "2020-10-01 12:00:00";
+    var date2 = "2020-10-11 12:00:00";
+    timer1 = new Date(date1); // 此处是代表指定的一个时间对象,并非当前时间的对象
+    timer2 = new Date(date2);
+    console.log( timer2-timer1 );
+    console.log( Math.abs(parseInt((timer2-timer1)/1000)) ); // 获取两个时间的秒差
+</script>
+</body>
+</html>

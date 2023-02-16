@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /**
+     * == 判断两边的变量的值是否相等，不判断数据类型
+     */
+    var num1 = 1;
+    var num2 = 2;
+    var num3 = true;
+    var num4 = "1"
+    var num5 = 0;
+    var num6 = "0"
+    console.log(num1 == num2); // false
+    console.log(num3 == num1); // true
+    console.log(num4 == num1); // true
+    console.log(num5 == num6); // true
+    console.log(num5 == false); // true
+    // 很神奇，num6转换成布尔值，是true，而num6与true直接判断，结果不等
+    console.log(num6 == true); // false
+    console.log(Boolean(num6)); // true
+    console.log("" == false); // true
+    console.log("" == undefined); // false
+    console.log(false == undefined); // false
+
+    /**
+     * === 判断两边的值是否相等并且数据类型是否一样。
+     */
+    console.log("10" == 10); // true
+    console.log("10" === 10); // false
+
+    /**
+     * !== 不全等，只要两边的值不同或者类型不一样则返回true
+     */
+    console.log("10" != 10); // false
+    console.log("10" !== 10); // true
+</script>
+</body>
+</html>

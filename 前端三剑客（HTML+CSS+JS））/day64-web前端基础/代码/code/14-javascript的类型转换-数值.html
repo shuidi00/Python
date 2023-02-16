@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    // 数值转换成字符串
+    var num1 = 100;
+    var num2 = 3.14;
+    var num3 = 0;
+    console.log( String(num1) ); // 100
+    console.log( String(num2) ); // 3.14
+    console.log( String(num3) ); // 0
+
+    // 总结：任意的数值都可以转换成字符串
+
+    // // 数值转换成布尔值
+    // var num4 = 1;
+    // var num5 = 2;
+    // var num6 = -1;
+    // var num7 = 0;
+    // var num8 = 0.0;
+    // var num9 = NaN;
+    // console.log( Boolean(num4) ); // true
+    // console.log( Boolean(num5) ); // true
+    // console.log( Boolean(num6) ); // true
+    // console.log( Boolean(num7) ); // false
+    // console.log( Boolean(num8) ); // false
+    // console.log( Boolean(num9) ); // false
+
+    // 总结：除了0和0.0和NaN，都是true
+
+
+    // 数值之间的转换
+    // parseInt(数值)    // 把数值转换成整数格式
+    // parseFloat(数值)  // 把数值转换成小数格式
+
+    var num10 = 3.14;
+    var num11 = '3.14';
+    var num12 = '3.14块';
+    var num13 = '3.3.5';
+    var num14 = '共3斤';
+    var num15 = '100_200_300';
+
+    // 小数转化成整数
+    console.log( parseInt(num10) )  // 3
+
+    // 纯数字的字符串转化成整数或浮点数
+    console.log( parseInt(num11), parseFloat(num11) ) // 3   3.14
+
+    // 以数值开头的字符串，例如："+3斤", "-3.0斤"
+    console.log( parseInt(num12), parseFloat(num12) ) // 3   3.14
+    console.log( parseInt(num13), parseFloat(num13) ) // 3   3.3
+    console.log( Number(num12), Number(num13) ) // NaN NaN，Number函数只能转换纯数值组成的字符串
+
+    // 非数字开头的字符串，parseInt或parseFloat也无能为力
+    // 针对字符串格式的千分位数值，parseInt或parseFloat也不认识
+    console.log( parseInt(num14), parseFloat(num15) ) // NaN 100
+
+</script>
+</body>
+</html>

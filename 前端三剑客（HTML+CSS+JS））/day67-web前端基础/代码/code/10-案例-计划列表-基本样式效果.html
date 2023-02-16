@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body, ul, input{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .todolist{
+        width: 600px;
+        margin: 40px auto 0;
+        background: #fff;
+        box-shadow: 2px 2px 20px 0 rgba(0,0,0,.3);
+    }
+    .top{
+        padding-top: 15px;
+        margin: auto;
+        width: 300px;
+    }
+    .top input[name="task"]{
+        height: 22px;
+        line-height: 22px;
+        width: 204px;
+        margin-right:1px;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #aaa;
+        outline: none;
+        transition: all .5s linear;
+    }
+    .top input[name="task"]:hover{
+        border: 1px solid #333;
+    }
+    .todolist button{
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        width: 80px;
+        color: #333;
+        background-color: #eee;
+        cursor: pointer;
+        transition: all .5s linear;
+    }
+    .todolist button:hover{
+        background-color: #ccc;
+    }
+    .tasklist{
+        width: 400px;
+        margin: 20px auto;
+        padding-bottom: 20px;
+    }
+    .tasklist li{
+        font-size: 14px;
+        height: 28px;
+        line-height: 28px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        cursor: pointer;
+        transition: all .5s linear;
+    }
+    .tasklist li:hover{
+        border-bottom: 1px solid #aaa;
+        background-color: #eee;
+    }
+    .tasklist li:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .tasklist li .title{
+        float: left;
+    }
+    .tasklist li button{
+        float: right;
+        height: 24px;
+        line-height: 24px;
+        width: 40px;
+        margin: 0 5px;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <div class="todolist">
+        <div class="top">
+            <input type="text" name="task" placeholder="请输入任务"><button class="btn">添加</button>
+        </div>
+        <ul class="tasklist">
+            <li><span class="title">学习python</span><button>删除</button><button>↑</button><button>↓</button></li>
+            <li><span class="title">学习python</span><button>删除</button><button>↑</button><button>↓</button></li>
+            <li><span class="title">学习python</span><button>删除</button><button>↑</button><button>↓</button></li>
+            <li><span class="title">学习python</span><button>删除</button><button>↑</button><button>↓</button></li>
+        </ul>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

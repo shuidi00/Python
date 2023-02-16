@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="loginbox">
+        登录账号：<input type="text" name="username" placeholder="请输入账号！"><b></b><br>
+        登录密码：<input type="password" name="password" placeholder="请输入密码！"><br>
+        确认密码：<input type="password" name="password2" placeholder="请再次输入密码！"><br>
+        所在城市：<select name="city">
+                    <option value="beijing">北京</option>
+                    <option value="shanghai">上海</option>
+                    <option value="chongqing">重庆</option>
+                    <option value="guiyang">贵阳</option>
+                </select><br>
+        <input type="file" name="avatar" id="">
+    </div>
+    <script>
+    var username = document.querySelector('input[name="username"]')
+    var password = document.querySelector('input[name="password"]')
+    // 获取焦点
+    username.onfocus = function(){
+        username.style.outline = "1px solid rgba(255, 99,99, 1)";
+        if(username.nextElementSibling.innerHTML){
+            username.value = "";
+            username.nextElementSibling.innerHTML = "";
+        }
+    }
+
+    // 失去焦点
+    username.onblur = function(){
+        username.style.outline = "none";
+        if(username.value.length<3 || username.value.length>16){
+            username.nextElementSibling.innerHTML = "账号的账号必须在3-16个字符之间"
+        }
+    }
+    // 值改变[输入框，下拉框，文件上传等]
+    password.onchange = function(){
+        console.log(password.value);
+    }
+    var city = document.querySelector('select[name="city"]');
+    city.onchange = function(){
+        console.log(city.value)
+        console.log(city.options.selectedIndex)
+    }
+
+    var avatar = document.querySelector('input[name="avatar"]');
+    avatar.onchange = function(){
+        console.dir(avatar.value);
+    }
+    </script>
+</body>
+</html>

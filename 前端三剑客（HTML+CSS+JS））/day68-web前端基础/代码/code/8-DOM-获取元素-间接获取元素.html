@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p class="p1">
+        <a href="" id="first-a">a标签</a>
+    </p>
+    <ul>
+        <li><a href="">第1个li</a></li>
+        <li><a id="link" href="">第2个li</a></li>
+    </ul>
+
+<script>
+    /**
+     * 假设，我们已经得到了p.p1下面的a标签。
+     * 我们可以通过间接的关系，来获取到"第一个li"对应的a标签
+     */
+    // var a = document.querySelector("#first-a")
+    // console.log(a)
+    // // 获取当前元素的父级元素
+    // var p1 = a.parentElement
+    // console.log(p1)
+    //
+    // // 获取当前元素的父级元素的兄弟，也就是p1的兄弟元素ul
+    // var ul = p1.nextElementSibling
+    // console.log( ul )
+    // // 同理，也可以通过ul获取它的上一个兄弟元素
+    // console.log(ul.previousElementSibling)
+
+    // // 获取ul所有的子元素
+    // var lilist = ul.children
+    // console.log(lilist)
+    // var li_1 = lilist[0]
+    // console.log( li_1)
+
+    // // 获取第一个子元素
+    // var first_ele = ul.firstElementChild
+    // console.log(first_ele)
+    //
+    // // 获取最后一个子元素
+    // var last_ele = ul.lastElementChild
+    // console.log(last_ele)
+
+    // // 获取li里面的a标签
+    // console.log(last_ele.children)  // 数组，元素集合
+    // console.log(last_ele.children[0]) // 元素对象
+
+    /**
+     * 假设，我们现在已经得到了第2个li标签里面的a标签内容了，要获取.p1下面的a标签
+     */
+    // var a = document.querySelector("#link")
+    // var ul = a.parentElement.parentElement // a的父级元素的父级元素
+    // console.log(ul)
+    // // 获取当前元素的上一个兄弟元素
+    // var p1 = ul.previousElementSibling
+    // console.log(p1)
+    // var alink = p1.children[0]
+    // console.log(alink)
+
+</script>
+</body>
+</html>

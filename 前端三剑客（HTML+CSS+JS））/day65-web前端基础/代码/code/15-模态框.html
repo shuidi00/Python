@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    p{margin: 0; padding: 0;}
+    .messagebox{
+        width:100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: rgba(0, 0, 0,.3);
+        display: none;
+    }
+    .messagebox .warp{
+        width: 600px;
+        height: 350px;
+        background: #fff;
+        position: absolute; /* 子元素相对于父定位元素做绝对定位 */
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 15px 30px 0 rgb(0,0,0);
+    }
+    .messagebox .btn{
+        width: 120px;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        background: #337ecc;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .3s linear;
+    }
+    .messagebox .btn:hover{
+        background: #409eff;
+    }
+    .messagebox .close{
+        width: 25px;
+        height: 25px;
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+    .messagebox .close svg{
+        max-width: 100%;
+        max-height: 100%;
+        transition: all .3s linear;
+    }
+    .messagebox .close:hover svg{
+        color: #409eff;
+    }
+    .messagebox .title{
+        height: 42px;
+        line-height: 42px;
+        font-size: 24px;
+        margin-top: 15px;
+        padding-left: 15px;
+        color: #333;
+        border-bottom: 1px solid rgba(0, 0, 0, .3);
+    }
+    .messagebox .message{
+        margin: 15px;
+        max-height: 180px;
+        overflow: auto;
+    }
+    .messagebox .footer{
+        position: absolute;
+        right: 25px;
+        bottom: 25px;
+    }
+    </style>
+</head>
+<body>
+    <button class="login-btn">登录</button>
+    <div class="messagebox">
+        <div class="warp">
+            <span class="close">
+                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+                </svg>
+            </span>
+            <p class="title">弹窗标题</p>
+            <div class="message">
+                弹窗的内容弹窗的内容弹窗的内容弹窗的内容弹窗的内容弹
+            </div>
+            <div class="footer">
+                <button class="btn confirm">确定</button>
+                <button class="btn cancel">取消</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    var btn = document.querySelector(".login-btn");
+    var confirmbtn = document.querySelector(".messagebox .confirm");
+    var cancelbtn = document.querySelector(".messagebox .cancel");
+    var closebtn = document.querySelector(".messagebox .close");
+    var messagebox = document.querySelector(".messagebox")
+    btn.onclick = function(){
+        messagebox.style.display = "block";
+    }
+    confirmbtn.onclick = function(){
+        alert("您点击了确定");
+    }
+    cancelbtn.onclick = function(){
+        messagebox.style.display = "none";
+    }
+    closebtn.onclick = function(){
+        messagebox.style.display = "none";
+    }
+    </script>
+</body>
+</html>

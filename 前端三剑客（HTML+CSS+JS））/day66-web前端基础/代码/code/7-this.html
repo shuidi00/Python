@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 在函数外界，this就是window对象
+        // console.log(this);
+        // console.log(window);
+        // console.log(this === window);
+
+        // // 在对象的方法中，this代表的就是当前对象
+        // class Humen{
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age  = age;
+        //     }
+        //     say(){
+        //         return `你好，我叫${this.name}!`
+        //     }
+        // }
+        //
+        // var xiaohong = new Humen("小红", 18);
+        // console.log(xiaohong);
+        // console.log( xiaohong.say() ); // // say是xiaohong的方法，所以this代表小红
+        //
+        // var xiaoming = new Humen("小明", 13);
+        // console.log(xiaoming);
+        // console.log( xiaoming.say() ); // // say是xiaoming的方法，所以this代表小明
+
+        // 所以要看清楚，方法或函数在调用时，左边的变量是谁？
+
+        var name = "window下的变量";
+
+        function desc(){
+            return this.name;
+        }
+
+        class Company{
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        var c = new Company("小明科技有限科技公司")
+        c.desc = desc;
+        console.log(c.desc()); // 小明科技有限科技公司
+
+        class Person{
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        var p = new Person("张三丰");
+        p.desc = desc;
+        console.log( p.desc() );  // 张三丰
+        console.log(p.desc === c.desc); // true
+
+
+        // 请问这里会显示什么呢？
+        console.log( desc() ); // desc调用时左边时没有任何的变量的，所以默认是window调用，因此在desc函数中，this代表的就是window对象
+
+
+    </script>
+</body>
+</html>

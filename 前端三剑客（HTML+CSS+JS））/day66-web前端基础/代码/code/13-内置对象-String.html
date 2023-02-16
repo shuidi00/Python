@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // var str = "abcdef中文"
+    // // 获取字符串长度
+    // console.log(str.length); // 8 中文算1个长度
+    //
+    // // 获取字符串中的字符，可以通过下标操作，从0开始，不支持切片，也不支持负数下标
+    // console.log(str[0]) // 获取第一个字符
+    // console.log(str[str.length-1]) // 获取最后一个字符
+
+    // js中的字符串与python一样，是字符类型，不支持修改部分字符的操作
+
+
+    // console.log(str.includes("abc"));     // true, 判断指定的子串是否是属于当前字符串的一部分
+    // console.log(str.endsWith("ef"));      // false, 判断结尾
+    // console.log(str.startsWith("abc"));   // true, 判断开头
+
+    // var str1 = "abcdef abce"
+    // console.log(str1.indexOf("c"));  // 2    首次出现的位置下标
+    // console.log(str1.lastIndexOf("c")); // 9 最后一次出现的位置下标
+
+    // 转换编码[根据编码值获取字符]
+    // console.log(String.fromCharCode(0x4e2d, 0x6587));
+    // console.log(String.fromCharCode(65, 97));
+
+
+    // repeat填充
+    // console.log("abc".repeat(3)); // abcabcabc
+
+
+    // // search查找指定字符首次出现的下标位置
+    // console.log("hello".search("o"));
+    //
+    // // match匹配指定字符
+    // console.log("13312345678".match(/1[3-9]\d{9}/))
+
+    // // split 分割，把字符串分割成数组
+    // console.log("湖南省-长沙市-xx区".split("-")) // ["湖南省", "长沙市", "xx区"]
+    // console.log("我是中国人".split("")); // ["我", "是", "中", "国", "人"]
+    //
+    // // 替换一次
+    // console.log("我是中国人".replace("我", "大家都")); // 大家都是中国人
+    // console.log("hello python，hello, javascript".replace("hello", "你好")); // 你好 python，hello, javascript
+    //
+    // // 替换多次
+    // console.log("hello python，hello, javascript".replaceAll("hello", "你好")); // 你好 python，你好, javascript
+
+
+    // // slice(开始下标，结束下标) 切片操作，切取范围是 (开始下标, 结束下标]  左闭(包含)右开(不包含)
+    // // slice 支持负数下标操作，所以slice与python中的切片几乎是一样的操作，但只支持2个参数
+    // mobile = "13312345678";
+    // console.log(mobile.slice(0, -3)); // 133
+    //
+    // // substr(开始下标，截取长度)
+    // mobile = "13312345678";
+    // console.log(mobile.substr(3, 4)); // 1234
+    //
+    // // substring(开始下标，结束下标)
+    // mobile = "13312345678"
+    // console.log(mobile.substring(3)); // 12345678, 从开始下标，一直截取到最后
+    // console.log(mobile.substring(3, 7)); // 1234, 从开始下标，一直截取到指定下标
+
+    // 字母转换大/小写
+    // console.log("hello，小明".toUpperCase()); // HELLO，小明
+    // console.log("HELLO，小明".toLowerCase()); // hello，小明
+
+    // 清除字符窜两边的空格或空白字符
+    var str3 = " hello "
+    var res = str3.trim();
+    console.log(res, res.length);
+</script>
+</body>
+</html>

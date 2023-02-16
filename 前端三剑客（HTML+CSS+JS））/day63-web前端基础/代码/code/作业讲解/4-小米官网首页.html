@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body, h1, h2, h3, h4, h5, h6, p, ul{
+        padding: 0;
+        margin: 0;
+        font-weight: normal;
+    }
+    a{
+        text-decoration: none;
+    }
+    img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    ul{
+        list-style: none;
+    }
+    .top{
+        height: 40px;
+        border: 1px solid red;
+    }
+    .header{
+        height: 100px;
+        border: 1px solid red;
+    }
+    .swiper{
+        height: 460px;
+        border: 1px solid red;
+    }
+    .banner{
+        height: 170px;
+        margin-bottom: 26px;
+    }
+    .banner .container{
+        width: 1226px;
+        margin: 0 auto;
+    }
+    .banner .container:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .banner .row{
+        float: left;
+        width: 316px;
+        height: 170px;
+        margin-left: 15px;
+    }
+    .banner ul.row{
+        width: 234px;
+        background: #5f5750;
+        margin-left: 0px;
+        border: none;
+    }
+    .banner li{
+        float: left;
+        width: 70px;
+        height: 82px;
+        padding: 0 3px;
+    }
+    .banner li a{
+        display: block;
+        padding-top: 18px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #fff;
+        opacity: .7;
+        transition: opacity .2s;
+        text-align: center;
+    }
+    .banner li a:hover{
+        opacity: 1;
+    }
+    .banner li img{
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto 4px;
+    }
+    .banner div.row:nth-child(2){
+        margin-left: 14px;
+    }
+    .ad {
+        height: 120px;
+        background: #f5f5f5;
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+    .ad .container{
+        width: 1226px;
+        margin: 0 auto;
+    }
+    .content{
+        height: 686px;
+        border: 1px solid red;
+        background: #f5f5f5;
+    }
+    .content .container{
+        width: 1226px;
+        margin: 0 auto;
+    }
+    .content .container .title:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .content .title h2{
+        float: left;
+        color: #333;
+        font-weight: 200;
+        line-height: 58px;
+    }
+    .content .title .more{
+        background: url("./assets/images/arrow-right-big-gray.svg") no-repeat 68px 18px;
+        background-size: 20px;
+        transition: all .4s;
+        float: right;
+        line-height: 58px;
+        width: 92px;
+    }
+    .content .more a{
+        font-size: 16px;
+        color: #424242;
+        display: block;
+    }
+    .content .more:hover{
+        background: url("./assets/images/arrow-right-big-orange.svg") no-repeat 68px 18px;
+        background-size: 20px;
+    }
+    .content .goods-list{
+        height: 628px;
+    }
+    .content .goods-list li{
+        width: 234px;
+        height: 280px;
+        float: left;
+        background: #fff;
+        margin-left: 14px;
+        margin-bottom: 14px;
+        transition: all .2s linear;
+    }
+    .content .goods-list li:hover{
+        transform: translate3d(0,-2px,0);
+        box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    }
+    .content .goods-list li:first-child{
+        height: 614px;
+        margin-left: 0;
+    }
+    .content .goods-list li:nth-child(n+2){
+        padding-top: 20px;
+    }
+    .content .goods-list li:nth-child(n+2) img{
+        width: 160px;
+        height: 160px;
+        display: block;
+        margin: 0 auto 18px;
+    }
+    .content .goods-list li:nth-child(n+2) h3{
+        margin: 0 10px 2px;
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+    }
+    .content .goods-list li:nth-child(n+2) .desc {
+        margin: 0 10px 10px;
+        height: 18px;
+        font-size: 12px;
+        color: #b0b0b0;
+        text-align: center;
+    }
+    .content .goods-list li:nth-child(n+2) .price{
+        margin: 0 10px 14px;
+        text-align: center;
+        color: #ff6700;
+    }
+    .content .goods-list li:nth-child(n+2)  .price del {
+        margin-left: 0.5em;
+        color: #b0b0b0;
+    }
+    .video{
+        height: 357px;
+        border: 1px solid red;
+    }
+    .footer{
+        height: 740px;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="header"></div>
+    <!-- 滚动轮播广告 -->
+    <div class="swiper"></div>
+    <!-- 企业广告 -->
+    <div class="banner">
+        <div class="container">
+            <ul class="row">
+                <li><a href=""><img src="./assets/images/icon-1.png">保障服务</a></li>
+                <li><a href=""><img src="./assets/images/icon-2.png">企业团购</a></li>
+                <li><a href=""><img src="./assets/images/icon-3.png">F码通道</a></li>
+                <li><a href=""><img src="./assets/images/icon-4.png">米粉卡</a></li>
+                <li><a href=""><img src="./assets/images/icon-5.png">以旧换新</a></li>
+                <li><a href=""><img src="./assets/images/icon-6.png">话费充值</a></li>
+            </ul>
+            <div class="row"><img src="./assets/images/banner-1.jpg" alt=""></div>
+            <div class="row"><img src="./assets/images/banner-2.jpg" alt=""></div>
+            <div class="row"><img src="./assets/images/banner-3.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="ad">
+        <div class="container">
+            <a href=""><img src="./assets/images/ad-1.webp" alt=""></a>
+        </div>
+    </div>
+    <!-- 手机 -->
+    <div class="content">
+        <div class="container">
+            <div class="title">
+                <h2>手机</h2>
+                <div class="more"><a href="">查看更多</a></div>
+            </div>
+            <ul class="goods-list">
+                <li class="goods-first"><img src="./assets/images/goods-1.webp" alt=""></li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+                <li>
+                    <img src="./assets/images/goods-2.webp" alt="">
+                    <h3>Redmi Note 11T Pro+</h3>
+                    <p class="desc">天玑8100｜真旗舰芯</p>
+                    <p class="price">
+                        <span class="num">1999</span>元<span>起</span>
+                        <del><span class="num">2099</span>元</del>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 智能穿戴 -->
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="ad"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="ad"></div>
+    <div class="content"></div>
+    <div class="video"></div>
+    <div class="footer"></div>
+</body>
+</html>

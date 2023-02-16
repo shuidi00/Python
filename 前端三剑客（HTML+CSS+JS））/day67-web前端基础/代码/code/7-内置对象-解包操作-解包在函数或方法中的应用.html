@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // 对象解包
+    // function fn1({ x, y }){ // 相当于{ x, y } = { x: 10, y: 20 }
+    //   console.log(x+y);
+    // }
+    //
+    // fn1({ x: 10, y: 5 });
+    // fn1({ x: 10, y: 10 });
+
+
+    // // 数组解包
+    // function fn2([x, y, z]){  // 相当于 [x,y,z] = [10,20,30]
+    //     console.log(x, y, z)
+    // }
+    // arr = [10,20,30]
+    // fn2(arr); // 10 20 30
+
+
+    // // 接收剩余参数
+    // function fn3(x, y, ...kwargs){ // ... 后面跟着的是变量，随便命名
+    //     console.log(x, y, kwargs)
+    // }
+    // fn3(10,20,30,40,50); // 10 20 [30, 40, 50]
+
+
+    // 实参解包，在形参中接收剩余参数
+    function fn4(x, y, ...surplus){
+        console.log(x, y, surplus)
+    }
+    arr = [10,20,30,40,50]
+    fn4(...arr); // 10 20 [30, 40, 50]
+</script>
+</body>
+</html>

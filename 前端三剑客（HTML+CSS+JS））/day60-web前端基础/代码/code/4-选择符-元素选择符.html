@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    /* css的注释只有一种 */
+    /* *，通配选择符，表示任意的HTML元素 */
+    * {
+        background-color: aqua;  /* 背景颜色：湖绿色; */
+    }
+    /* 直接使用标签名作为选择符，就是类型选择符，指定网页中的某一类型的元素 */
+    a {
+        color: blue; /* 字体颜色：红色; */
+        text-decoration: none; /* 文本-线条装饰：无; */
+    }
+
+    /* id选择符，#号后面这个指定元素的id值，表示给某一个元素设置css样式 */
+    #baidu{
+        font-size: 32px; /* 字体-大小：32像素; */
+        font-family: sans-serif; /* 字体-家族：无衬线字体 */
+    }
+
+    /* 类选择符，通过class属性指定某些HTML元素归纳为同一类，可以通过类选择符，直接指定类的元素添加样式 */
+    .first{
+        font-size: 32px; /* 字体-大小：32px */
+        text-decoration: underline; /* 文本-线条装饰：下划线; */
+    }
+    .second{
+        background-color: gray; /* 背景-颜色：灰色; */
+        color: white; /* 字体颜色：白色; */
+    }
+    .third{
+        border: 5px solid red; /* 边框：边框宽度(1px) 边框类型(实线) 边框颜色(红色) */
+    }
+    </style>
+</head>
+<body>
+    <!-- 元素的属性是唯一的，所以同一个元素中，不能出现多个一样的属性名，如果有多个同名属性，浏览器只会识别第一个属性 -->
+    <h1 class="first" class="second">一个标题</h1>
+    <!-- 一个元素可以同时属于1或多个不同的分类,类名之间使用空格隔开 -->
+    <p class="first third">一个段落</p>
+    <p class="second">一个段落</p>
+    <a class="second" href="https://www.taobao.com">淘宝</a><br><br>
+    <a class="second third" href="https://www.tmall.com">天猫</a><br><br>
+    <!-- 一个元素的id属性值不能有多个-->
+    <a id="baidu" class="third" href="https://www.baidu.com">BaiDu</a><br><br>
+    <!-- 不同的HTML元素中可以声明同一个id属性值，但是不推荐并且强烈反对！因为在将来的js编写特效时会可能出现错误 -->
+    <a id="baidu" href="https://www.baidu.com">BaiDu</a><br>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1-</li>
+        <li>2-</li>
+        <li>3-</li>
+    </ul>
+    <script>
+        var list = document.querySelectorAll("li")
+        // 如果循环，函数，方法中的变量尽可能使用let进行声明。
+        // 其他地方的变量则可以使用var声明
+        for(let i = 0; i<list.length; i++){
+            list[i].onclick = function(){
+                console.log(i, list[i].innerHTML);
+                // console.log(this.innerHTML)
+            }
+        }
+        // console.log(i); // for循环中使用let声明，不要使用var，否则i会变成全局变量。
+    </script>
+</body>
+</html>

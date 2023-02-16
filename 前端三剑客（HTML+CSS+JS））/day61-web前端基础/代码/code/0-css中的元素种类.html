@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    行内元素[inline]：<br>
+    特点：<br>
+    1. 同一个行内元素，可以一行多个，直到当前一行满行就会换行到第二行显示 <br>
+    2. 行内元素默认是没有宽度与高度的，是依靠内容来支撑的。<br>
+    3. 行内元素是没有完整的边距的，只存在左右边距，没有上下边距。[边距就是元素与元素或元素与内容之间的空隙] <br>
+    <a href="" style="margin-top: 40px;">a元素</a>
+    <a href="">a元素</a>
+    <a href="">a元素</a>
+    <span>span元素</span>
+    <span>span元素</span>
+    <span>span元素</span>
+    <b>字体加粗</b>
+    <b>字体加粗</b>
+    <i>字体倾斜</i>
+    <i>字体倾斜</i>
+
+    <hr>
+    行内块级元素[inline-block]：<br>
+    也叫行级块状元素，特点：<br>
+    1. 同一个行内块级元素，可以一行多个，直到当前一行满行就会换行到第二行显示 <br>
+    2. 行内块级元素默认是没有宽度与高度的，是依靠内容来支撑，但是可以通过css样式属性设置宽度与高度<br>
+    3. 行内块级元素是完整的边距的 <br>
+    <style>
+    img, input, button{
+        width: 100px;
+        height: 100px;
+        margin-top: 40px; /* 上外边距：40px; */
+        margin-left: 40px; /* 上外边距：40px; */
+    }
+    </style>
+    <img src="" alt=""><img src="1.gif" alt=""><img src="1.gif" alt="">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <hr>
+    块级元素[block]：<br>
+    特点：<br>
+    1. 同一个块级元素，只能一行一个，自带换行<br>
+    2. 块级元素默认是没有高度的，是依靠内容来支撑，宽度默认占据父级元素的100%宽度。可以通过css样式属性设置宽度与高度<br>
+    3. 块级元素是完整的边距的 <br>
+    <style>
+    p{
+        margin-top: 40px;
+        background-color: red;
+        width: 200px;
+    }
+    .box1{
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+    }
+    .box2{
+        height: 150px;
+        background-color: red;
+    }
+    </style>
+    <p>p标签</p>
+    <p>p标签</p>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <div>div标签</div>
+    <h1 style="margin-bottom: 40px;">h1</h1>
+    <h1>h1</h1>
+
+    <hr>
+    隐藏元素[none]：<br>
+    特点：<br>
+    1. 用户不可见，隐藏的内容不会占用网页空间，也就是没有宽高。<br>
+    <input type="hidden" name="id" value="1">
+    除了上面这个，还有 head，title，mate等元素。<br>
+    <hr>
+    在后面的css学习中，我们会学习到1个display属性，这个属性可以改变元素的显示模式。<br>
+    <style>
+    .box3{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        /*display: inline-block;   !* 设置当前元素为行内块级元素 *!*/
+        /*display: block;  !* 设置当前元素为块级元素 *!*/
+        display: none;  /* 设置当前元素为隐藏元素 */
+    }
+    .box4{
+        width: 100px;
+        height: 100px;
+        background-color: cornflowerblue;
+        display: inline;  /* 设置当前元素为行内元素 */
+    }
+    </style>
+    <a class="box3" href="">a标签</a>
+    <a class="box3" href="">a标签</a>
+    <div class="box4">div标签</div>
+    <div class="box4">div标签</div>
+</body>
+</html>

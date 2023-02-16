@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // var num = 2;
+    // 当js中使用了一个未定义的变量，进行代码执行或者作为函数的参数就会报错。
+    try {
+        console.log(num);
+    }catch (e) {
+        // name表示本次出现的异常类型，message表示异常的提示信息
+        console.log(e.name, e.message);
+    }finally {
+        console.log("try代码块的执行是否出现异常，都会执行finally操作")
+    }
+
+    </script>
+</body>
+</html>

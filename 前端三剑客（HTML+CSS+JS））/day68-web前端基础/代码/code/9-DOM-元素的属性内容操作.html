@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    img{
+        width: 50px;
+        height: 50px;
+    }
+    </style>
+</head>
+<body>
+    <p class="p1">
+        <a href=""><img src="image-20220617122320261.png" alt=""><span>a1标签</span></a>
+        <a href="">a2标签</a>
+    </p>
+    账号：<input type="text" name="username"><br><br>
+    密码：<input type="password" name="password"><br><br>
+    城市：<select name="city">
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="tianjin">天津</option>
+         </select><br><br>
+    <button onclick="get_data()">按钮</button>
+<script>
+    // 获取一个元素
+    var a = document.querySelector(".p1 a")
+    // // 获取元素的内容
+    // console.log(a.innerHTML) // 获取元素内部的HTML内容
+    // console.log(a.outerHTML) // 获取包含当前元素的标签名在内的HTML内容
+    // console.log(a.innerText) // 获取元素内部的纯文本内容，剔除HTML标签代码
+
+    // // 修改元素的内容
+    // a.innerHTML = "<span style='background-color: red'>helloworld</span>" // 把内容作为HTML内容展示
+    // // a.innerText = "<span style='background-color: red'>helloworld</span>" // 把内存作为纯文本内容展示
+
+    // // 清空元素的内容，直接赋值为空字符串
+    // a.innerHTML = ""
+    // a.innerText = ""
+
+    // 注意: html中并非所有的元素都是使用内容来展示数据的，例如：表单元素就是通过value(值)来操作和控制数据的
+    // 获取表单值
+    var username = document.querySelector("input[name=username]");
+    var password = document.querySelector("input[name=password]");
+    var city     = document.querySelector("select[name=city]");
+
+    function get_data(){
+        console.log(`username=${username.value}, password=${password.value}, city=${city.value}`)
+        // 下拉框的相关属性操作
+        console.log(city.options.selectedIndex) // 勾选内容的下标
+        console.log(city.options[city.options.selectedIndex].innerHTML) // 显示select被勾选的内容
+    }
+
+    // 获取图片的属性
+    console.dir(document.images[0]);
+    console.log(document.images[0].src); // HTML源码中的图片路径
+    console.log(document.images[0].currentSrc); // HTML源码中的图片路径
+    console.log(document.images[0].naturalHeight); // 图片原始高度[没有经过缩放前的]
+    console.log(document.images[0].naturalWidth);  // 图片原始宽度[没有经过缩放前的]
+
+    // 修改图片的属性
+    document.images[0].src = "vim.png";
+
+    // // 元素的通用位置、尺寸属性
+    // console.log(document.images[0].offsetHeight);  // 图片显示高度[没有经过缩放前的]
+    // console.log(document.images[0].offsetWidth);   // 图片显示宽度[没有经过缩放前的]
+    // console.log(document.images[0].offsetLeft);    // 图片左上角距离页面左边的距离
+    // console.log(document.images[0].offsetTop);     // 图片左上角距离页面顶边的距离
+</script>
+</body>
+</html>

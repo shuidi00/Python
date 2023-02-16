@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // // 获取操作系统的当前时间对象
+    // var date = new Date();
+    // console.log(date, typeof date);
+    // // 获取一个指定时间的对象
+    // date = new Date("1989-02-17 12:30:00");
+    // console.log(date);
+    // // 获取时间
+    // console.log(date.toISOString());
+    // // 获取年份
+    // console.log(date.getFullYear());
+    // // 获取月份
+    // console.log(date.getMonth()+1);
+    // // 获取本月的日期
+    // console.log(date.getDate());
+    // // 获取当前小时
+    // console.log(date.getHours());
+    // // 获取当前分钟
+    // console.log(date.getMinutes());
+    // // 获取当前秒
+    // console.log(date.getSeconds());
+    // // 获取数值时间戳[从1970年1月1日 00:00:00至今的总毫秒数]
+    // console.log(date.getTime());
+    // console.log(date.getTime()/1000); // 秒时间戳
+
+    // 根据今天周几判断显示网页的主题颜色
+    var date = new Date();
+    var week = date.getSeconds() % 7
+    // var week = date.getDate()
+    console.log( week ); // 获取今天是周几（周日是0，周一时1，周六是6）
+    switch (week) {
+        case 0:
+            console.log("周日哦");
+            break; // 跳出当前swtich语句
+        case 1:
+            console.log("周一");
+            break;
+        case 2:
+            console.log("周二");
+            break;
+        case 3:
+            console.log("周三");
+            break;
+        case 4:
+            console.log("周四");
+            break;
+        case 5:
+            console.log("周五");
+            break;
+        default:
+            console.log("周六！！！")
+    }
+    colorTheme = ["red", "orange", "yellow", "green", "#00ffff", "blue", "#ff00ff"]
+    document.body.style.backgroundColor = colorTheme[week];
+    // background-color 改成 backgroundColor，因为js中-号有特殊用途
+    </script>
+</body>
+</html>

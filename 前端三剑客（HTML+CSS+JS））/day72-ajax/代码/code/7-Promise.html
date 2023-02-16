@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    var status = false;
+    var response = new Promise((resolve, reject)=>{
+      // 下载/读取文件等耗时操作，容易阻塞的代码
+      // ....
+      if(status === false){
+        // 写耗时的代码，结果放在resolve作为参数提供给调用者
+        resolve("成功的结果");
+      }else{
+        reject("错误了！！！你玩大了！");
+      }
+    });
+    console.log("1")
+    response.then(response=>{
+        console.log(response);
+    }).catch(error=>{
+        console.log(error)
+    })
+    console.log("2")
+    </script>
+</body>
+</html>

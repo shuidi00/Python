@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+    <name>小明</name>
+    <age>200</age>
+    <fav>code</fav>
+    <fav>eat</fav>
+    <fav>swim</fav>
+    <fav>read</fav>
+    <son name="小小名" age="100"></son>
+</data>

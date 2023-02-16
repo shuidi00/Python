@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 与python不一样，js的对象不需要不依赖于类的创建，也就是说可以直接创建对象，也可以使用类创建对象。
+// 常用的声明对象的方式有4种。
+// 1. 通过花括号字面量来声明
+// 空对象，没有任何属性或方法的对象
+var obj0 = {}
+console.log(obj0);
+
+// 有属性，但没有方法的对象
+money = 100
+var obj1 = {
+    name: "晓明",
+    age: 30,
+    sex: true,
+    money, // money: money, 当对象的属性值是一个变量，并且变量与属性名一样，则可以简写
+    lve: ["苹果","香蕉","雪梨","水牛"], // 对象的属性成员可以是任意类型，也可以是数组或其他对象
+    gf: {
+        name: "小白",
+        age: 28,
+        sex: false,
+    },
+}
+
+console.log(obj1);
+
+
+// 有属性，有方法的对象
+var obj2 = {
+    name: "晓明",
+    age: 30,
+    sex: true,
+    lve:["苹果","香蕉","雪梨","水牛"],
+    say(){ // 对象的方法，js中声明函数类似与python，但是def换成function
+        return "hello world";
+    },
+    walk(){ // 对象的方法的简写方式，walk: function(){ 的简写
+        return "我在走路！！"
+    }
+}
+
+console.log(obj2);
+
+
+// 2. 通过Object来创建对象
+var obj3 = Object();  // 空对象
+// 对象可以追加属性或方法的
+obj3.name = "小白";
+obj3.age = 28;
+obj3.sex=false;
+obj3.say = function(){
+    return "hello world";
+}
+obj3.walk = ()=>{  // function() { 的 简写方式，但是与普通的函数声明有细微区别，后面学到函数的时候我们再讲
+    return "我在走路！！"
+}
+console.log(obj3);
+
+
+// 2.1 通过new Object来创建对象
+var obj4 = new Object();  // 空对象
+// 对象可以追加属性或方法的
+obj4.name = "小黑";
+obj4.age = 16;
+obj4.sex=true;
+obj4.say = function(){
+    return "hello world";
+}
+obj4.walk = ()=>{  // function() { 的 简写方式，但是与普通的函数声明有细微区别，后面学到函数的时候我们再讲
+    return "我在走路！！"
+}
+console.log(obj4);
+
+// 3. 通过构造函数来创建
+function Humen(name, age, sex){ // 类似以前在python里面的__init__方法。
+    this.name=name;  // this，一个代表当前对象的伪变量，类似python的self
+    this.age=age;
+    this.sex=sex;
+    this.say=function(){
+        return "hello world";
+    }
+}
+
+var obj5 = new Humen("小红",27,false);
+console.log(obj5);
+
+
+// 4. 先有类，后有对象
+class Person{  // Humen类名，相当于上面的函数名
+    constructor(name, age, sex) { // constructor，构造函数，相当于python的__init__方法
+        // js对象的初始化属性操作全部写在这里
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    say(){ // js中的对象方法
+        return "hello world";
+    }
+    walk(){
+        return "我在走路";
+    }
+    desc(){
+        // 当前对象调用自身的方法或属性，直接使用this调用即可
+        return `我叫${this.name}，我今年${this.age}岁。`
+    }
+}
+
+// 基于类创建对象
+obj6 = new Person("小兰", 18, false)
+console.log(obj6)
+
+// 对象的属性调用
+console.log(obj6.name)
+// 对象的方法调用
+console.log(obj6.desc())
+// 对象的属性可以更改
+obj6.name = "李小兰"
+console.log(obj6.desc())
+
+</script>
+</body>
+</html>

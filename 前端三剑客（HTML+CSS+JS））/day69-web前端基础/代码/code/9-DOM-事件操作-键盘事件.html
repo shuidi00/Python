@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <form action="https://httpbin.org/post" method="post">
+        <input type="text" name="username">
+        <button>登录</button>
+    </form>
+    <script>
+    // // keyup 键松开
+    // document.onkeyup = function(event){
+    //     console.log(`本次按了：${event.keyCode}键`)
+    // }
+    //
+    // // keydown 键按下
+    // document.onkeydown = function(event){
+    //     console.log(`本次按了：${event.keyCode}键`)
+    // }
+    // var username = document.querySelector('input[name="username"]')
+    // username.onkeyup = function(){
+    //     if(username.value.length<3 || username.value.length>16){
+    //         username.style.outline = "1px solid red";
+    //     }else{
+    //         username.style.outline = "1px solid blue";
+    //     }
+    // }
+
+    // 回车键直接提交表单
+    window.onkeyup = function(event){
+        if(event.keyCode === 13){
+            console.log("按了回车键");
+            document.querySelector('form').submit(); // 直接触发事件
+        }
+    }
+
+    </script>
+</body>
+</html>

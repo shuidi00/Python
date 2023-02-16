@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /**
+     * 真且真，返回真 [不管任何内容，都是返回后面的，短路现象]
+     * 真且假，返回假 [不管任何内容，都是返回后面的，短路现象]
+     * 假且真，返回假 [不管后面是任何内容，直接不执行，返回左边条件结果]
+     * 真或假，返回真 [不管后面是任何内容，直接不执行，返回左边条件结果]
+     * 假或真，返回真 [不管任何内容，都是返回后面的，短路现象]
+     * 假或假，返回假 [不管任何内容，都是返回后面的，短路现象]
+     * 非真即假，非假即真
+     */
+
+
+    console.log( true && true )      // true
+    console.log( 1 == 1 && 2 == 2 )  // true
+    console.log( 1 && 2 )            // 2
+    console.log( true && false )  // false
+    console.log( true && 2 )      // 2
+    console.log( 1 && 0 )         // 0
+
+    console.log( true || false )  // true
+    console.log( 1 || 0 )         // 1
+    console.log( false || false ) // false
+    console.log(  0 || '结果' )       // '结果'
+
+    console.log( !true )          // false
+    console.log( !100 )           // false
+    console.log( !false )         // true
+    console.log( !'' )            // true
+
+
+    // 语句短路了，根据判断status的布尔值，判断是否要计算赋值
+    var age = 17
+    var status = ""; // 此处除了""可以当成false使用，其他的false，0，null,undefined都不能被当成false使用，隐式转换带来的不好影响
+    var ret1 = status || (age=3);
+    console.log(ret1, `age=${age}`);
+</script>
+</body>
+</html>

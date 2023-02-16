@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onclick="show(this)">
+    <div class="box1"  onclick="show(this)">
+        <h1>标题</h1>
+        <p class="p1" onclick="show(this)">
+            <span>文章内容</span><br>
+            <a href="" class="a1" onclick="return show(this)">a标签内容</a>
+        </p>
+    </div>
+    <script>
+    function show(ele){
+        console.log(ele);
+        event.stopPropagation()  // 阻止事件冒泡
+        return false; // 阻止页面跳转或表单提交
+    }
+    </script>
+</body>
+</html>

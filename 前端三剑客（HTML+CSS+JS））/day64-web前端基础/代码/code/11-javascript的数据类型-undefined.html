@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // undefined表示未定义，在js中，变量为undefined的情况有2种：
+    // 1. 声明了一个变量，但是没有给变量进行赋值
+    var num;
+    console.log(num, typeof num); // undefined "undefined"
+    // 2. 对一个变量的值，明确定义为undefined
+    var data = undefined;
+    console.log(data, typeof data); // undefined "undefined"  这种情况往往用于删除var或let关键字声明的变量
+
+    // 3. 特殊情况，当如果一个变量出现时没有使用var或let关键字进行声明时，
+    // 此时如果通过delete关键字删除变量，则变量就会被删除掉。同时该变量的类型就会变成undefined
+    age = 16;
+    console.log(age, typeof age); // 16 "number"
+    delete age;
+    console.log(typeof age); // undefined
+    // console.log(age); // 此处报错，被delete删除的age，不能直接被使用了。
+
+    // 补充，delete是js用于提供给开发者删除属性或者成员的关键字
+    // delete可以删除对应的属性或者数组的成员
+    data = [1,2,3,4]
+    delete data[2]
+    console.log(data) // [1, 2, empty, 4] 被删除的成员为空
+    console.log(data[2], typeof data[2]);  // undefined "undefined"
+
+    // js中的对象与json格式类似，但是与json不一样的时，json的属性必须是字符串，而js中的属性可以是任意类型的数据
+    var obj = {"name":"小明", "age": 16, 1:2}
+    console.log( obj, typeof obj)
+    console.log(obj[1]); // 当如果对象中存在字符串以外的属性，则获取当前属性可以通过中括号来提取，操作类似python的字典
+
+    delete obj.name
+    console.log(obj.name, typeof obj.name); // undefined "undefined"
+    // 换句话说，就是访问一个不存在的数组成员或者对象的属性时，值为undefined
+    console.log(obj.sex, typeof obj.sex); // undefined "undefined"
+
+    // 为什么delete不能删除var或者let声明的变量，但是可以删除不使用var或let声明的变量呢？
+    // money = 200; // 实际上，这个根本就不是在声明一个变量，而是声明了一个对象的属性
+    this.money = 200;   // 上一句代码相当于当前这句代码
+    console.log(money); // 200
+
+    // 那么，这个this代表的对象是谁呢？
+    console.log(this);
+    // Window对象。叫浏览器窗口对象，
+    // 实际上我们在打开HTML网页时，由浏览器引擎会自动创建浏览器窗口页，那么管理这个窗口页的对象，就是window对象
+    console.log(window); // window是一个超全局对象，我们所编写的js代码实际上就是写给window的。
+    // 因此，我们声明的变量，实际上就是给window添加了一个属性
+
+</script>
+</body>
+</html>

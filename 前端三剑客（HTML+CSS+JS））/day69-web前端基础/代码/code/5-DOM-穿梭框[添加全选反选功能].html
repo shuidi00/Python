@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .shuttle{
+        position: relative;
+        margin: 50px;
+    }
+    .shuttle:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .shuttle .left-option-list, .shuttle .btn-group, .shuttle .right-option-list{
+        float: left;
+        height: 224px;
+        width: 200px;
+    }
+    .shuttle .btn-group{
+        width: 160px;
+    }
+    .shuttle .title{
+        background-color: #eee;
+        font-size: 14px;
+        height: 24px;
+        line-height: 24px;
+        color: #666;
+        text-align: center;
+    }
+    .shuttle .operator{
+        border: 1px solid #aaa;
+        padding: 4px 0;
+    }
+    .shuttle .operator button{
+        width: 50px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        font-size: 12px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    .shuttle .option-list{
+        border: 1px solid #aaa;
+        border-top: none;
+        padding: 15px 0;
+        min-height: 170px;
+    }
+    .shuttle .option-list li{
+        height: 24px;
+        padding-left: 10px;
+    }
+    .shuttle .option-list li input{
+        margin-right: 5px;
+    }
+    .shuttle .btn-group{
+        text-align: center;
+        line-height: 224px;
+    }
+    .shuttle .btn-group .left, .shuttle .btn-group .right{
+        width: 60px;
+        height: 40px;
+        margin: 5px;
+        background: #0099ff;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        transition: all .3s linear;
+    }
+    .shuttle .btn-group .left:hover, .shuttle .btn-group .right:hover{
+        background: #55ccff;
+    }
+    </style>
+</head>
+<body>
+    <div class="shuttle">
+        <div class="left-option-list">
+            <p class="title">所有选项列表</p>
+            <div class="operator">
+                <button class="all_select">全选</button>
+                <button class="reverse_select">反选</button>
+            </div>
+            <ul class="option-list">
+                <li data-id="1"><label><input type="checkbox" name="all_option">选项1</label></li>
+                <li data-id="2"><label><input type="checkbox" name="all_option">选项2</label></li>
+                <li data-id="3"><label><input type="checkbox" name="all_option">选项3</label></li>
+                <li data-id="4"><label><input type="checkbox" name="all_option">选项4</label></li>
+                <li data-id="5"><label><input type="checkbox" name="all_option">选项5</label></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button class="left">&lt;&lt;</button>
+            <button class="right">&gt;&gt;</button>
+        </div>
+        <div class="right-option-list">
+            <p class="title">选中选项列表</p>
+            <div class="operator">
+                <button class="all_select">全选</button>
+                <button class="reverse_select">反选</button>
+            </div>
+            <ul class="option-list">
+                <li data-id="6"><label><input type="checkbox" name="sel_option">选项6</label></li>
+                <li data-id="7"><label><input type="checkbox" name="sel_option">选项7</label></li>
+                <li data-id="8"><label><input type="checkbox" name="sel_option">选项8</label></li>
+                <li data-id="9"><label><input type="checkbox" name="sel_option">选项9</label></li>
+                <li data-id="10"><label><input type="checkbox" name="sel_option">选项10</label></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    var leftBtn = document.querySelector('.btn-group .left')
+    var rightBtn = document.querySelector('.btn-group .right')
+    var leftOptList = document.querySelector('.left-option-list .option-list')
+    var rightOptList = document.querySelector('.right-option-list .option-list')
+    var selectOption = null;
+    rightBtn.onclick = function(){
+        // 把左边被选中的选项移动到右边
+        selectOption = []
+        for (let i = leftOptList.children.length-1; i>=0; i--){
+            if(leftOptList.children[i].querySelector("input").checked){
+                selectOption.push( leftOptList.removeChild(leftOptList.children[i]) )
+            }
+        }
+
+        for (let i = selectOption.length-1; i>=0; i--){
+            selectOption[i].querySelector("input").checked = false;
+            rightOptList.appendChild(selectOption[i]);
+        }
+    }
+
+    leftBtn.onclick = function(){
+        // 把右边被选中的选项移动到左边
+        selectOption = []
+        for (let i = rightOptList.children.length-1; i>=0; i--){
+            if(rightOptList.children[i].querySelector("input").checked){
+                selectOption.push( rightOptList.removeChild(rightOptList.children[i]) )
+            }
+        }
+
+        for (let i = selectOption.length-1; i>=0; i--){
+            selectOption[i].querySelector("input").checked = false;
+            leftOptList.appendChild(selectOption[i]);
+        }
+    }
+
+    // 批量给元素绑定事件操作
+    // 全选
+    var all = document.querySelectorAll('.all_select');
+    var OptList = null;
+    for (let i = 0 ;i<all.length; i++){
+        all[i].onclick = function(){
+            OptList = all[i].parentElement.nextElementSibling;
+            for(let x =0; x<OptList.children.length; x++){
+                OptList.children[x].querySelector("input").checked = true;
+            }
+        }
+    }
+
+    // 反选
+    var rev = document.querySelectorAll('.reverse_select');
+    var OptList = null;
+    for (let i = 0; i<rev.length; i++){
+        rev[i].onclick = function(){
+            OptList = rev[i].parentElement.nextElementSibling;
+            for(let x =0; x<OptList.children.length; x++){
+                OptList.children[x].querySelector("input").checked = !OptList.children[x].querySelector("input").checked;
+            }
+        }
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // js原生对象
+    var js_obj = {
+      name:"小明",
+      age:40,
+      fav:["code","eat","swim",'read',],
+      son:{
+        name:'小小明',
+        age:10,
+      }
+    };
+    // json对象转换成字符串格式的json数据
+    var json_str = JSON.stringify(js_obj);
+    console.log( "json_str=", json_str );
+
+    // 字符串格式的json数据转换成json对象
+    data_str = `{"name":"小明","age":40,"fav":["code","eat","swim","read"],"son":{"name":"小小明","age":10}}`
+    var json_obj = JSON.parse(data_str);
+    console.log( json_obj );
+    console.log( json_obj.name );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

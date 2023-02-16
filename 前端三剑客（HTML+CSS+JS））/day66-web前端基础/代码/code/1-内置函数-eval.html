@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <textarea name="code" cols="30" rows="10"></textarea>
+    <br>
+    <button>运行</button>
+    <script>
+    var code = document.querySelector('textarea[name="code"]')
+    var btn  = document.querySelector('button')
+    btn.onclick = ()=>{
+        try {
+            eval(code.value);
+        }catch (e) {
+            console.log(e.message);
+        }
+    }
+    </script>
+</body>
+</html>

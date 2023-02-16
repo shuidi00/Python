@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p class="p1">测试标签</p>
+    <script>
+        // 元素的添加
+        var a = document.createElement("a")
+        // 新建的元素，可以指定任意内容或属性操作
+        // a.setAttribute("href", "http://www.baidu.com")
+        a.href = "http://www.baidu.com"
+        a.innerHTML = "百度"
+        console.log(a);
+        /**
+         * 把元素添加到指定元素的内部指定位置
+         * appendChild()  # 作为子元素追加到指定父元素的末尾
+         * insertBefore() # 作为子元素添加到父元素中指定的兄弟元素之前
+         */
+        // 新建的元素，默认是不会被展示页面中[此时属于文档碎片]，所以我们需要指定新建的元素的位置
+        // document.body.appendChild(a) // 以追加方式，在指定元素的内部新增子元素
+        // document.body.insertBefore(a, document.querySelector("script"))
+
+        /**
+         * 把元素添加到指定元素的外部之前或之后
+         * before()  # 把元素作为兄弟元素添加到指定元素之前
+         * after()   # 把元素作为兄弟元素添加到指定元素之后
+         */
+
+        // var p1 = document.querySelector(".p1")
+        // // p1.before(a)
+        // p1.after(a)
+
+        /**
+         * 删除元素
+         *  1. 父元素删除子元素   父元素对象.removeChild(子元素对象)
+         *     removeChild 的 返回值就是被删除的当前子元素对象
+         *  2. 元素删除自己    子元素.remove()
+         **/
+
+        // 父元素删除子元素
+        // var p1 = document.querySelector(".p1")
+        // ret = document.body.removeChild(p1)
+        // console.log(ret);
+
+        // // 元素自身进行删除
+        // var p1 = document.querySelector(".p1")
+        // p1.remove()
+
+    </script>
+</body>
+</html>

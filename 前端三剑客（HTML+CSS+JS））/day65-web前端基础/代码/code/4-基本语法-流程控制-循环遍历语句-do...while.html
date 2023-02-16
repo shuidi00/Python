@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // do...while 也是循环语句，与while不一样的时，while先判断条件，后执行代码块，而do...while先执行代码块，后判断条件
+        // do...while 可以保证循环中的代码块会至少执行一遍，实际工作中很少使用。
+        // num = 10;
+        // while (num<10){ // 先判断条件，后执行花括号中的代码块
+        //     console.log(num);
+        // }
+
+        num = 10;
+        do{ // 先执行代码块，
+            console.log(num++);
+        }while (num<10); // 后判断条件
+
+    </script>
+</body>
+</html>

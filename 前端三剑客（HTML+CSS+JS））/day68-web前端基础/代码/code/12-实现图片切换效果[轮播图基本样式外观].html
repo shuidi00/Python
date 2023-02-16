@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .banner{
+        width: 632px;
+        height: 340px;
+        position: relative;
+    }
+    .img-list{
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+    }
+    .img-list .img:nth-child(n+2){ /* 除了第一个默认显示以外，后面的全部隐藏 */
+        display: none;
+    }
+    .btn-list .btn-left{
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -84px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-left:hover{
+        background: url("assets/images/icon-slides.png") 0 0;
+    }
+    .btn-list .btn-right{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -124px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-right:hover{
+        background: url("assets/images/icon-slides.png") -41px 0;
+    }
+    .btn-number{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    .btn-number.num span{
+        cursor: pointer;
+        border: 1px solid cornflowerblue;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number.num span:hover{
+        background-color: cornflowerblue;
+        color: #fff;
+    }
+    .btn-number span{
+        cursor: pointer;
+        border: 2px solid #999;
+        background-color: #999;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        line-height: 10px;
+        text-indent: 2rem;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number span:hover{
+        background-color: #ddd;
+    }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="img-list">
+            <div class="img">
+                <a href=""><img src="assets/images/banner-1.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-2.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-3.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-1.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="btn-list">
+            <div class="btn-left"></div>
+            <div class="btn-right"></div>
+            <div class="btn-number"></div>
+        </div>
+    </div>
+
+    <script>
+    // 轮播图切换图片效果
+    var list = document.querySelector('.img-list')
+    var bumBtn = document.querySelector('.btn-number')
+    console.log(list.children.length)
+    var HTML = ""
+    for (let i = 0; i<list.children.length;i++){
+        HTML+= `<span>${i+1}</span>`
+    }
+    bumBtn.innerHTML = HTML;
+    </script>
+
+</body>
+</html>

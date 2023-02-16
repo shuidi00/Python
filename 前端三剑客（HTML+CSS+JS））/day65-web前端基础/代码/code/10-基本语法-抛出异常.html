@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // 抛出异常信息
+    // var age = 12;
+    // if(age <18){
+    //     throw "对不起，您未成年，不能进入网吧！";
+    // }
+
+    // 自定义异常
+    var person = {"name": "小明", "age": 17}
+    function UserError(name){
+        this.name = "UserException";
+        this.message = `对不起，${name}，您未成年，不能进入网吧！`;
+    }
+    if(person.age <18){
+        throw new UserError(person.name);
+    }
+    </script>
+</body>
+</html>

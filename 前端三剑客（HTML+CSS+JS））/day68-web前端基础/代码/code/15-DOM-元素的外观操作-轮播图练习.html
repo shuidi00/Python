@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .banner{
+        width: 632px;
+        height: 340px;
+        position: relative;
+        overflow: hidden;
+    }
+    .img-list{
+        width: 9999px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+    }
+    .img-list .img{ /* 除了第一个默认显示以外，后面的全部隐藏 */
+        float: left;
+    }
+    .btn-list .btn-left{
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -84px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-left:hover{
+        background: url("assets/images/icon-slides.png") 0 0;
+    }
+    .btn-list .btn-right{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -124px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-right:hover{
+        background: url("assets/images/icon-slides.png") -41px 0;
+    }
+    .btn-number{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    .btn-number.num span{
+        cursor: pointer;
+        border: 1px solid cornflowerblue;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number.num span:hover{
+        background-color: cornflowerblue;
+        color: #fff;
+    }
+    .btn-number span{
+        cursor: pointer;
+        border: 2px solid #999;
+        background-color: #999;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        line-height: 10px;
+        text-indent: 2rem;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number span:hover, .btn-number .current{
+        background-color: #ddd;
+    }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="img-list">
+            <div class="img">
+                <a href=""><img src="assets/images/banner-1.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-2.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-3.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="btn-list">
+            <div class="btn-left"></div>
+            <div class="btn-right"></div>
+            <div class="btn-number">
+                <span class="current">1</span>
+                <span>2</span>
+                <span>3</span>
+            </div>
+        </div>
+    </div>
+    <script>
+    var imgList = document.querySelector('.img-list')
+    var width = imgList.parentElement.offsetWidth
+    var leftBtn = document.querySelector('.btn-left')
+    var rightBtn = document.querySelector('.btn-right')
+    var numberBtn = document.querySelector('.btn-number')
+    var left = 0;
+    var index = 0;
+    var timer = null;
+    var end = left;
+
+    rightBtn.onclick = function(){
+        index++;
+        end = left-width;
+        if(index>=imgList.children.length){
+           index = 0;
+           end = 0;
+           left = 0;
+        }
+
+        clearInterval(timer);
+        step = 1;
+        timer = setInterval(()=>{
+            if(left>end){
+                // 开始移动
+                step*=1.01;
+                left-=step;
+                if(left<end){
+                    left = end;
+                }
+                imgList.style.left = `${left}px`;
+            }
+            if(left<=end){
+                clearInterval(timer);
+            }
+        })
+
+        for(let i = 0; i<numberBtn.children.length;i++){
+            numberBtn.children[i].className = "";
+            if(i === index){
+                numberBtn.children[i].className = "current";
+            }
+        }
+    }
+
+    // 左边按钮
+    // 当显示的是第一张图片时，怎么让.img-list切换到最后一张再开始移动。
+    </script>
+</body>
+</html>

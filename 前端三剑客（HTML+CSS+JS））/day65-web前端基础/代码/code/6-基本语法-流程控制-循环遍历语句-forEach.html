@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <script>
+    var li_list = document.querySelectorAll("ul li");
+    var colorList = ["red", "orange", "yellow", "green", "#00ffff", "blue", "#ff00ff"]
+    // 由数组提供的一个专门遍历数组成员或数组下标的方法
+    li_list.forEach(function(item, key){
+        console.log(key, item);
+        item.style.backgroundColor = colorList[key];
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+<script>
+    // 在前面的学习中，所有的交互效果[弹窗函数，定时器，内置函数等等，实际上都是window提供的]
+    console.log(window);
+
+    // // 在新版本浏览器提供的BOM操作，
+    // // 实际上还提供了用于替代setInterval定时器的功能函数叫requestAnimationFrame与CancelAnimationFrame。
+    // let timer = null
+    // let time = parseInt((new Date() - 0) / 1000)
+    // let start_time = time;
+    // function func(){
+    //     if(time == parseInt((new Date() - 0) / 1000)){
+    //         console.log(time);
+    //         time++;
+    //     }
+    //     cancelAnimationFrame(timer);
+    //     if(start_time+10 >= parseInt((new Date() - 0) / 1000)){
+    //         timer = requestAnimationFrame(func);
+    //     }
+    // }
+    // func();
+
+
+    // 通过元素对象本身的style只能获取行间样式
+    console.log('背景颜色=',document.body.style.backgroundColor);
+    // 想要获取当前元素通过内部样式或者外部样式的css属性值，是不能通过style属性来获取的，
+    // 而是要通过getComputedStyle来获取浏览器中css样式表对象，来提取对应的内部或外部样式里面的值，
+    // getComputedStyle 仅仅提供了获取样式值而已，不提供属性设置。
+    console.log( getComputedStyle(document.body)["background-color"] );
+
+    // 浏览器窗口显示内容区域的宽高度
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
+
+    // 浏览器窗口的整体宽高度
+    console.log(outerHeight);
+    console.log(outerWidth);
+
+
+</script>
+</body>
+</html>

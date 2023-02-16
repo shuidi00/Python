@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="1.js"></script> <!-- 当需要单独引入外部js代码，则必须和内部js代码使用独立的script标签！！！ -->
+    <script>
+    /*
+      多行注释
+     */
+    // 单行注释
+    // 此处编写的js代码就是内部js代码，写在script标签中才能被识别为js代码，否则浏览器不识别，
+    // 同时，内部js的script绝对不能出现src属性，否则会被浏览器忽略内部js代码
+    alert(200)
+    </script>
+</head>
+<body>
+
+<h1 id="h1">h1的内容</h1>
+
+<script>
+    // 一个HTML网页中，可以引入0到多个外部js文件，引入的位置，一般要么在head标签，一般要么在body结束标签位置钱
+    alert(h1.innerHTML)
+    // js默认是单线程运行的
+    // 所以，当代码遇到阻塞时，会导致后面的代码无法继续执行，而是进入等待状态
+</script>
+</body>
+</html>

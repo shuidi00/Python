@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .messagebox{
+        width: 428px;
+        height: 444px;
+        margin: 50px auto;
+        background: url("assets/images/bg.png") no-repeat;
+        padding-top: 124px;
+        padding-left: 32px;
+    }
+    label{
+        display: block;
+    }
+    input, textarea{
+        background: transparent; /* 透明背景 */
+        border: 1px solid #aaa;
+        outline: none;
+        width: 382px;
+    }
+    input{
+        height: 32px;
+        line-height: 32px;
+        margin-bottom: 20px;
+    }
+    label{
+        font-weight: bold;
+        font-family: Arial,serif;
+        color: #666;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    textarea{
+        height: 82px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    .btn{
+        display: block;
+        width: 114px;
+        height: 44px;
+        background: transparent url("assets/images/button.png") no-repeat;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    .btn:hover{
+        background: transparent url("assets/images/button.png") no-repeat 0 -44px;
+    }
+    .messagebox input[name="username"]{
+        background: transparent url("assets/images/user.png") no-repeat 6px 9px;
+        text-indent: 1.5rem;
+    }
+    .messagebox input[name="password"]{
+        background: transparent url("assets/images/lock.png") no-repeat 6px 9px;
+        text-indent: 1.5rem;
+    }
+    .messagebox input[name="email"]{
+        background: transparent url("assets/images/mail.png") no-repeat 6px 9px;
+        text-indent: 1.5rem;
+    }
+    .messagebox textarea[name="message"]{
+        background: transparent url("assets/images/comment.png") no-repeat 6px 9px;
+        text-indent: 1.5rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="messagebox">
+        <label>username:</label>
+        <input type="text" name="username">
+        <label>password:</label>
+        <input type="password" name="password">
+        <label>email:</label>
+        <input type="email" name="email">
+        <label>message:</label>
+        <textarea name="message"></textarea>
+        <button class="btn"></button>
+    </div>
+</body>
+</html>

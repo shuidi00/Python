@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // 解包对象，不需要按书序，而是按属性名赋值，不存在的属性，则为undefined
+    // var xiaoming = { name: "小明", age: 18, sex: true, address: "北京市" };
+    // var { name, address, age, mobile="1331234567", city} = xiaoming;
+    // console.log(name, age, address, mobile, city); // 小明 18 北京市 1331234567 undefined
+
+    // 解包对象，属性重命名，并指定默认值
+    name = "html网页标题"
+    var xiaoming = { name: "xiaoming", age: 18, sex: true, address: "北京" };
+    var { name: myname, age: myage, mobile: mymobile="1331234567"} = xiaoming;
+    console.log(myname, myage, mymobile); // xiaoming 18 undefined
+
+    console.log(name);
+</script>
+</body>
+</html>

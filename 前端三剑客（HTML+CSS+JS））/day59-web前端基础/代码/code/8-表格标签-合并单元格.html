@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table width="800" border="1">
+        <tr>
+            <!-- colspan 表示当前单元格[td,th]占据2列 -->
+            <th colspan="2">form标签属性说明</th>
+        </tr>
+        <!-- tr>th*2 -->
+        <tr>
+            <th>属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>action</td>
+            <td>设置当前表单的表单数据处理应用程序的url地址，默认值是当前url地址。</td>
+        </tr>
+        <!-- tr>td*2 -->
+        <tr>
+            <!--设置当前单元格，占据3行的空间  -->
+            <td rowspan="3">method</td>
+            <td>设置当前表单的HTTP提供方式，默认是get。</td>
+        </tr>
+        <tr>
+            <td>get，以<b>查询字符串</b>的格式，把表单数据附加在url地址栏上提交数据</td>
+        </tr>
+        <tr>
+            <td>post，以<b>数据包</b>格式，把表单数据附在HTTP网络请求体中提交数据</td>
+        </tr>
+        <tr>
+            <td rowspan="4">enctype</td>
+            <td>设置当前表单提交的数据格式</td>
+        </tr>
+        <tr>
+            <td>application/x-www-form-urlencoded：默认值，以普通表达数据格式提交</td>
+        </tr>
+        <tr>
+            <td><b>multipart/form-data</b>：以多种数据格式提交</td>
+        </tr>
+        <tr>
+            <td>text/plain：以纯文本数据格式提交</td>
+        </tr>
+    </table>
+</body>
+</html>

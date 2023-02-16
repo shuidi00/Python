@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    /*给指定选择符被鼠标划选的部分内容，设置外观样式*/
+    p::selection{
+        color: yellow;
+        background-color: black;
+    }
+    /* 给指定输入框元素的提示帮助信息设置外观样式 */
+    input[type="text"]::placeholder{
+        font-size: 12px; /* 字体-大小：12px，注意，谷歌浏览器中，默认最小字体只能是12px。 */
+        color: red;
+        text-align: center; /* 文本-水平对齐方式: 居中[center]、居左[left,默认值], 居右[right], 两端对齐[justify]*/
+    }
+    .news::before{
+        content: "[";
+    }
+    .news::after{
+        content: "]"
+    }
+
+    .money::before{
+        content: "$";
+    }
+    .content::after{
+        content: ".....";
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <p class="news">风吹麦浪起，扑面穗生香。金色的麦田里，收割机在麦浪中来回忙碌，一颗颗饱满的麦粒从收割机仓门倾泻而下，源源不断地被送上运粮车，颗粒归仓。</p>
+    <input type="text" placeholder="请输入账号！"><br>
+    <span class="money">100</span>
+    <p class="content">一个基本的文章内容</p>
+</body>
+</html>

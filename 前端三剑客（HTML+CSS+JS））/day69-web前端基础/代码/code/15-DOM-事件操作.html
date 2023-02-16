@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <button class="btn">点击按钮</button>
+    </div>
+    <script>
+    var btn = document.querySelector(".btn")
+    var func1 = function(event){
+        console.log(event); // 当前事件对象，MouseEvent 表示鼠标事件
+        console.log(event.target) // 触发事件的元素对象
+        console.log(event.timeStamp) // 触发事件时，客户端的时间戳
+        console.log(event.type) // 触发事件的事件类型
+        console.log(event.path) // 事件触发过程中的事件捕获/事件传播路径
+    }
+    btn.addEventListener("click", func1);
+    </script>
+</body>
+</html>

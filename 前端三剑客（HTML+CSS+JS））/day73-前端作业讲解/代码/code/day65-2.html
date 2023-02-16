@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body,ul,h2,p{
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+    }
+    ul{
+        list-style: none;
+    }
+    ul:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .team ul{
+        width: 538px;
+        border: 1px solid #000;
+    }
+    .team ul li{
+        border: 14px solid #eee;
+        width: 188px;
+        height: 188px;
+        float: left;
+        padding: 20px;
+    }
+    .team ul li:nth-child(1){
+        margin-bottom: 25px;
+        margin-right: 25px;
+        background: url("assets/images/icon_1.png") no-repeat 140px 120px;
+        background-size: 80px 80px;
+    }
+    .team ul li:nth-child(2){
+        margin-bottom: 25px;
+        background: url("assets/images/icon_2.png") no-repeat 140px 140px;
+        background-size: 80px 80px;
+    }
+    .team ul li:nth-child(3){
+        margin-right: 25px;
+        background: url("assets/images/icon_3.png") no-repeat 140px 140px;
+        background-size: 80px 80px;
+    }
+    .team ul li:nth-child(4){
+        background: url("assets/images/icon_4.png") no-repeat 140px 140px;
+        background-size: 80px 80px;
+    }
+    .team ul li h2{
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .team ul li p{
+        margin-top: 15px;
+        color: #666;
+        font-size: 20px;
+        width: 130px;
+        line-height: 28px;
+    }
+    </style>
+</head>
+<body>
+    <div class="team">
+        <ul>
+            <li>
+                <h2>组建团队</h2>
+                <p>线上报名，与其他参赛者组建小分队。</p>
+            </li>
+            <li>
+                <h2>模拟实训</h2>
+                <p>参与官方赛事，仿真模拟训练。实战、学习两不误。</p>
+            </li>
+            <li>
+                <h2>组建团队</h2>
+                <p>线上报名，与其他参赛者组建小分队。</p>
+            </li>
+            <li>
+                <h2>模拟实训</h2>
+                <p>参与官方赛事，仿真模拟训练。实战、学习两不误。</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

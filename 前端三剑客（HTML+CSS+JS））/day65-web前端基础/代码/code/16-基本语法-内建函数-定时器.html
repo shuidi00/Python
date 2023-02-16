@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="btn">停止刷新页面</button>
+    <button class="btn start">开始刷新页面</button>
+    <hr>
+    <h1 class="h1">0</h1>
+    <script>
+        /**
+         * setInterval(匿名函数，间隔时间) 定时多次，异步执行，不会产生阻塞
+         * 返回值是序数，表示当前定时器是当前页面的第几个定时器，用于清除当前定时器
+         */
+        // setInterval(()=>{
+        //     console.log(new Date().getTime());
+        // }, 1000); // 1s = 1000ms
+
+        /**
+         * clearInterval(序数) 清除指定定时器
+         */
+
+        // var num = 1;
+        // var timer = setInterval(()=>{
+        //     console.log(num++);
+        //     if(num>=5){
+        //         // 如果不清除定时器，除非页面刷新，否则定时器是不会停止
+        //         console.log(timer, typeof timer);
+        //         clearInterval(timer);
+        //     }
+        // }, 1000);
+
+        /**
+         * setTimeout(匿名函数, 时间间隔) 定时一次，异步执行，不会产生阻塞
+         * 返回值是序数，表示当前定时器是当前页面的第几个定时器，用于清除当前定时器
+         */
+        // setTimeout(()=>{
+        //     // 倒计时3秒，页面跳转到地址url地址
+        //     location.href="https://www.baidu.com"
+        // }, 3000);
+
+        /**
+         * clearTimeout(序数) 清除指定定时器
+         */
+/*        function start_timer(){
+            var t = setTimeout(()=>{
+                location.reload() // F5，刷新当前页面
+            }, 2000);
+            var btn = document.querySelector(".btn");
+            btn.onclick = ()=>{
+                clearTimeout(t);
+            }
+            var start = document.querySelector(".start");
+            start.onclick = ()=>{
+                start_timer();
+            }
+        }
+
+        start_timer();*/
+
+        /**
+         * 因为定时器是并发执行的，所以要尽量保证，同一个定时器在同一个页面中唯一。
+         */
+        // var h1 = document.querySelector(".h1");
+        // var t2 = null;
+        // h1.onclick = ()=>{
+        //     clearInterval(t2); // 每次创建一个新的定时器之前，把旧的定时器移除。
+        //     t2 = setInterval(()=>{
+        //         h1.innerHTML= parseInt(h1.innerHTML) + 1;
+        //     },1000);
+        // }
+
+        /**
+         * 绝对时间间隔的定时器实现
+         */
+        // var num = 1;
+        // setInterval(()=>{
+        //     alert(num); // 阻塞代码并不会延迟定时器 setInterval 的计时功能。
+        //     num++;
+        // },2000);
+
+        // 我们希望实现的效果时，阻塞的代码也能把定时器也停滞下来。
+        // 改成setTimeout来实现定时多次，就可以解决这个问题
+
+        var num = 1;
+        function timer(){
+            alert(num++);
+            setTimeout(()=>{
+                timer(); // 实现定时多次
+            },2000);
+        }
+        timer();
+
+    </script>
+</body>
+</html>

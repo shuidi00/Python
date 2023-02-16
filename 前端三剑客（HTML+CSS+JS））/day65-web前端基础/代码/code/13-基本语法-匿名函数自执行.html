@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 匿名函数自执行
+        (function(name){
+            var num = 20; // 在函数中通过关键字var/let声明的变量，只能在当前函数中使用，无法被外界调用
+            console.log("匿名函数执行了。", `name=${name}`)
+        })("小明");
+
+        // 箭头函数自执行
+        ((name)=>{
+            console.log("匿名函数执行了。", `name=${name}`)
+            console.log(num); // 此处报错
+        })("小红");
+    </script>
+</body>
+</html>

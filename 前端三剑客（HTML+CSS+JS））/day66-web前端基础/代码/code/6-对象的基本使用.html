@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xiaoming = {     // 有属性有方法的对象
+        age: 18,
+        sex: true,
+        desc(){
+            console.log("js对象");
+        }
+    }
+
+    // 可以给对象追加新属性或新方法，也可以针对原有的属性值或方法进行修改
+    xiaoming.name = "小明";
+
+    // 给对象追加方法，在对象的外部，追加方法，不能使用箭头函数
+    xiaoming.say = function(){
+        console.log(`我叫${this.name},我今年${this.age}岁!`);
+    }
+
+    console.log(xiaoming);
+
+    // 访问对象的属性
+    console.log(xiaoming.name);
+    console.log(xiaoming.age);
+    // 访问对象的方法
+    xiaoming.say();
+
+
+</script>
+</body>
+</html>

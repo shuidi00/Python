@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="add">添加</button>
+    <ul class="box">
+
+    </ul>
+    <script>
+    var add = document.querySelector(".add")
+    var box = document.querySelector(".box")
+    add.onclick = function(){
+        box.innerHTML+= `<li><input type="text"><button onclick="sub(this)">-</button></li>`
+    }
+    function sub(ele){
+        ele.parentElement.remove();
+    }
+    </script>
+</body>
+</html>

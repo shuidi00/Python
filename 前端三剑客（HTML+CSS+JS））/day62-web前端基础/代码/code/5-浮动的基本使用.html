@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .box1, .box2, .box3, .box4, .box5, .box6{
+        width: 400px;
+        height: 200px;
+        background: orange;
+    }
+    .son1, .son2, .son3, .son4, .son5, .son6{
+        width: 80px;
+        height: 80px;
+    }
+    .son1{background: gray;}
+    .son2{background: blue;}
+    .son3{background: red;}
+    .son4{background: yellow;}
+    .son5{background: purple;}
+    .son6{background: pink;}
+    </style>
+</head>
+<body>
+    <p>box1：正常情况下，网页中2个表示网页一个板块的块级元素是不能在同一行中显示的。</p>
+    <div class="box1">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+    </div>
+    <hr>
+    <p>box2：元素使用了浮动，就相当于让元素移动到了2楼（此时的元素属于浮动元素，没有使用浮动的元素就是处于1楼的文档流元素）。<br>
+        各个浮动元素会自动遵循排列先后循序。<br>
+        如果存在一个浮动元素，另一个文档流元素在同一个父级元素下，则可能出现浮动元素覆盖文档流元素的情况。<br>
+        被覆盖的文档流元素中如果存在文本内容，则会被溢出</p>
+    <style>
+    .box2 .son1{float: right;}
+    .box2 .son2{float: right;}
+    .box2 .son3{float: right;}
+    .box2 .son4{float: right;}
+    .box2 .son5{float: right;}
+    /*.box2 .son6{float: right;}*/
+    </style>
+    <div class="box2">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+        <div class="son4">son4</div>
+        <div class="son5">son5</div>
+        <div class="son6">son6</div>
+    </div>
+
+    <hr>
+    <p>box3：如果多个浮动元素，集体往左浮动，那么所有的浮动元素，从左往右排列，直到满行，重新在第二行从左往右排列</p>
+    <style>
+    .box3 .son1, .box3 .son2, .box3 .son3{float: left;}
+    </style>
+    <div class="box3">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+    </div>
+
+    <hr>
+    <p>box4：如果多个浮动元素，集体往右浮动，那么所有的浮动元素，从右往左排列，直到满行，重新在第二行从右往左排列</p>
+    <style>
+    .box4 .son1, .box4 .son2, .box4 .son3{float: right;}
+    </style>
+    <div class="box4">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+    </div>
+
+    <hr>
+    <p>box5：如果多个浮动元素，如果占满了一行，后续的元素会被挤到第二行根据自己的浮动方向从新排列。</p>
+    <style>
+    .box5 .son1{float: left;}
+    .box5 .son2{float: left;}
+    .box5 .son3{float: right;}
+    .box5 .son4{float: right;}
+    .box5 .son5{float: right;}
+    .box5 .son6{float: left;}
+    </style>
+    <div class="box5">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+        <div class="son4">son4</div>
+        <div class="son5">son5</div>
+        <div class="son6">son6</div>
+    </div>
+
+   <hr>
+    <p>box6：浮动元素排列过程中，如果存在前面的元素是文档流元素，则后续的浮动元素，会在文档流元素的下方排列。</p>
+    <style>
+    .box6 .son1{float: left;}
+    .box6 .son2{float: left;}
+    .box6 .son4{float: left;}
+    .box6 .son5{float: right;}
+    </style>
+    <div class="box6">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+        <div class="son4">son4</div>
+        <div class="son5">son5</div>
+    </div>
+
+   <hr>
+    <p>box7：如果子元素全部浮动，而父级元素没有设置高度，则会因为子元素浮动而导致父级元素失去高度。<br>
+    因为父级元素没有进行浮动，因此还属于文档流元素，因为父级元素在没有高度时需要依靠子元素的内容来支撑高度的。<br>
+    而子元素被浮动了，与父级元素不在同一层，会导致父级元素无法依靠子元素来进行内容支撑。<br>
+    此时如要让父元素恢复原有的高度有3种解决方案：<br>
+        1. 让父元素也浮动起来，这样的话，父子元素都在同一层了，父元素的高度自然恢复<br>
+        2. 让父元素在末尾追加一个伪对象元素，让这个伪元素使用clear清除浮动给父元素带来的影响，让伪对象元素处于文档流元素中，父元素的高度也会自然恢复。
+    </p>
+    <style>
+    .box7{width: 400px; background: orange;}
+    .box7 .son1{float: left;}
+    .box7 .son2{float: left;}
+    .box7 .son3{float: left;}
+    /* 第一种解决方案 */
+    /*.box7{ float:left; }*/
+
+    /*第二种解决方案*/
+    /*.son7::after{*/
+    /*    display: block;*/
+    /*    clear: both;  !* 清除浮动给父父元素带来的影响 *!*/
+    /*}*/
+
+    /*第三种解决方案*/
+    .box7{
+        overflow: hidden;
+        /* 溢出文本内容的处理方式，使用这句属性，也可以清除掉浮动元素给当前元素带来的影响。
+        overflow本身的作用是处理溢出元素范围的文本的隐藏方式，所以浏览器会调用css重新计算当前元素实际需要占据的空间
+        是多少，这样的话，css会重新计算浮动的子元素的实际占据空间，并提供给当前元素，所以当前元素会恢复原有计算高度。
+        */
+    }
+    </style>
+    <div class="box7">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son3">son3</div>
+    </div>
+    <div style="height:400px;width:600px;">结束的DIV</div>
+</body>
+</html>

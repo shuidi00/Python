@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 200px;
+        height:200px;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    // 添加数据到本地存储中
+    localStorage.setItem("属性名","数据")
+    localStorage.属性名="数据"
+
+    localStorage.setItem("name","root")
+    localStorage.status = 100
+
+    // // 修改本地存储中的数据
+    // // 本地存储中的属性名是唯一的，所以针对同一个属性名的值进行修改即可
+    // localStorage.name="xiaoming"
+
+    // 获取本地存储中的数据
+    // localStorage.("变get量名")
+    // localStorage.变量名
+    var ret = localStorage.getItem("status")
+    console.log(ret) // 文本格式数据，所以一般复杂的数据保存到本地存储中，都是经过JSON或者base编码处理的
+
+
+    // // 删除本地存储中一个或全部数据
+    // localStorage.removeItem("name")
+    // // 清空当前域名在本地存储中的所有数据，慎用
+    // localStorage.clear()
+
+</script>
+</body>
+</html>

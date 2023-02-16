@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .login-btn{
+        border: none;
+        outline: none;
+        background: #315efb;
+        color: #fff;
+        width: 120px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    .login-bg{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: none;
+        background-color: rgba(0,0,0,0.67);
+    }
+    .login-box{
+        width: 400px;
+        height: 180px;
+        padding: 100px;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <button class="login-btn">登录</button>
+    <div class="login-bg">
+        <div class="login-box">
+            <h2>登录</h2>
+            登录账号：<input type="text"><br><br>
+            登录密码：<input type="password" name="" id=""><br><br>
+            <input type="submit" value="登录">
+        </div>
+    </div>
+    <script>
+    let btn = document.querySelector(".login-btn")
+    let bg = document.querySelector(".login-bg")
+    let box = document.querySelector(".login-box")
+    btn.onclick = function(){
+        bg.style.display = "block"
+    }
+    bg.onclick = function(){
+        bg.style.display = "none";
+    }
+    box.onclick = function(event){
+        console.log("备点了")
+        // 阻止事件继续冒泡
+        event.stopPropagation()
+    }
+    </script>
+</body>
+</html>

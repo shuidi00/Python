@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+    .box1{
+        width: 400px;
+        height: 200px;
+        background-color: red;
+        text-align: center;
+    }
+    .box2{
+        width: 150px;
+        height: 50px;
+        background-color: yellow;
+        margin: 0 auto; /* 设置让子块级元素在父块级元素的内部横向居中 */
+    }
+    </style>
+</head>
+<body>
+1. 初始化样式，针对列表，h1，p等等HTML元素，在默认情况下存在一些不必要的内外边距，工作中一般会处理掉<br>
+<p>p1</p>
+<h1>h1</h1>
+<ul>
+    <li>li-1</li>
+    <li>li-2</li>
+</ul>
+2. 让子块级元素在父块级元素内部居中 <br>
+<div class="box1">
+    <div class="box2">hello</div>
+</div>
+3. 布局效果 <br>
+<hr>
+<style>
+.today-news{
+    width: 440px;
+    margin: 50px auto;
+}
+.today-news .block-title{
+    font-size: 30px;
+    color: #0066cc;
+    border-bottom: 1px solid #ccccff;
+    height: 61px;
+}
+.today-news .block-title span{
+    border-bottom: 5px solid #0066cc;
+    padding-bottom: 15px;
+}
+.today-news .block-title .first-news a{
+    color: #333;
+    text-decoration: none;
+}
+.today-news .news-list li{
+    line-height: 32px;
+}
+.today-news .first-news {
+    padding: 13px 0 5px;
+    font-weight: bold;
+}
+.today-news a:hover {
+    color: #0c82ff;
+}
+.today-news li .site{
+    color: #253e6d;
+    font-weight: bold;
+}
+.today-news li .line{
+    padding: 0 5px;
+    color: #e9e9e9;
+}
+</style>
+<div class="today-news">
+    <h3 class="block-title"><span>今日话题</span></h3>
+    <ul class="news-list">
+        <li class="first-news"><a href="">国家统计局：5月份国民经济运行呈现恢复势头</a></li>
+        <li><a class="site" href="">海外网</a><span class="line">|</span><a class="title" href="">落实“双碳”行动，共建美丽家园</a></li>
+        <li><a class="site"  href="">新华网</a><span class="line">|</span><a class="title" href="">这笔钱，你也可能领到！全国总工会最新通知</a></li>
+        <li><a class="site"  href="">中国青年网</a><span class="line">|</span><a class="title" href="">过度防疫被通报：疫情防控不松懈不加码</a></li>
+        <li><a class="site"  href="">半月谈网</a><span class="line">|</span><a class="title" href="">身在基层却脱离基层，部分干部为何疏离百姓家门</a></li>
+        <li><a class="site"  href="">澎湃新闻</a><span class="line">|</span><a class="title" href="">全国铁路6月20日起实行新运行图</a></li>
+        <li><a class="site"  href="">中国新闻周刊</a><span class="line">|</span><a class="title" href="">黑土地告急！事关14亿人的饭碗</a></li>
+    </ul>
+</div>
+</body>
+</html>

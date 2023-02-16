@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body, ul, input{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .todolist{
+        width: 600px;
+        margin: 40px auto 0;
+        background: #fff;
+        box-shadow: 2px 2px 20px 0 rgba(0,0,0,.3);
+    }
+    .top{
+        padding-top: 15px;
+        margin: auto;
+        width: 300px;
+    }
+    .top input[name="task"]{
+        height: 22px;
+        line-height: 22px;
+        width: 204px;
+        margin-right:1px;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #aaa;
+        outline: none;
+        transition: all .5s linear;
+    }
+    .top input[name="task"]:hover{
+        border: 1px solid #333;
+    }
+    .todolist button{
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        width: 80px;
+        color: #333;
+        background-color: #eee;
+        cursor: pointer;
+        transition: all .5s linear;
+    }
+    .todolist button:hover{
+        background-color: #ccc;
+    }
+    .tasklist{
+        width: 400px;
+        margin: 20px auto;
+        padding-bottom: 20px;
+    }
+    .tasklist li{
+        font-size: 14px;
+        height: 28px;
+        line-height: 28px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        cursor: pointer;
+        transition: all .5s linear;
+    }
+    .tasklist li:hover{
+        border-bottom: 1px solid #aaa;
+        background-color: #eee;
+    }
+    .tasklist li:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+    .tasklist li .title{
+        float: left;
+    }
+    .tasklist li button{
+        float: right;
+        height: 24px;
+        line-height: 24px;
+        width: 40px;
+        margin: 0 5px;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <div class="todolist">
+        <div class="top">
+            <input type="text" name="task" placeholder="请输入任务"><button class="btn">添加</button>
+        </div>
+        <ul class="tasklist">
+
+        </ul>
+    </div>
+    <script>
+    var task = document.querySelector('input[name="task"]');
+    var btn = document.querySelector('.btn');
+    var taskList = document.querySelector('.tasklist');
+    var taskData = [
+        "学习python",
+        "学习java",
+        "学习javascript",
+        "学习Golang",
+        "学习Rust",
+    ]
+
+    function showData(taskList, taskData){
+        // 让数组中所有成员经过循环添加到ul列表中
+        let content = ""
+        for(let item of taskData.entries()){
+            content += `
+            <li>
+                <span class="title">${item[1]}</span>
+                <button onclick="deleteTask(${item[0]})">删除</button>
+                <button onclick="moveUp(${item[0]})">↑</button>
+                <button onclick="moveDown(${item[0]})">↓</button>
+            </li>`
+        }
+        taskList.innerHTML = content;
+    }
+
+    showData(taskList, taskData);
+
+    btn.onclick = function(){
+        // 把用户添加的任务追到成员到taskData数组中
+        taskData.push(task.value);
+        // 显示数据
+        showData(taskList, taskData);
+        // 清空掉输入框的内容
+        task.value = "";
+    }
+
+    function deleteTask(index){
+        // 删除计划
+        console.log("要删除的数据的下标：", index);
+        // 根据下标删除数据中对应的计划任务
+        taskData.splice(index,1);
+        // 显示数据
+        showData(taskList, taskData);
+    }
+
+    function moveUp(index){
+        /**
+         * 把计划向上移动
+         */
+        // 如果任务就在最上面，则不需要移动
+        if(index === 0){
+            return false; // 阻止代码继续往下执行
+        }
+        // 先把当前任务从任务列表中删除
+        let task = taskData.splice(index,1)[0];
+        console.log(task);
+        // 在任务列表中的下标前一个位置插入
+        taskData.splice(index-1, 0, task);
+        // 显示数据
+        showData(taskList, taskData);
+    }
+
+
+    function moveDown(index){
+        /**
+         * 把计划向下移动
+         */
+        // 如果任务就在最上面，则不需要移动
+        if(index === taskData.length-1){
+            return false; // 阻止代码继续往下执行
+        }
+        // 先把当前任务从任务列表中删除
+        let task = taskData.splice(index,1)[0];
+        // 在任务列表中的下标前一个位置插入
+        taskData.splice(index+1, 0, task);
+        // 显示数据
+        showData(taskList, taskData);
+    }
+    </script>
+</body>
+</html>

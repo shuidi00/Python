@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .row{
+        height: 42px;
+        border-bottom: 1px solid #aaa;
+        margin-bottom: 10px;
+    }
+    .username-tips, .password-tips, .password2-tips, .mobile-tips, .email-tips{
+        color: red;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+<form action="http://httpbin.org/post" method="post">
+    <div class="row">
+        登录账号：<input type="text" name="username" placeholder="请输入3-16位之间的账号" value="root">
+        <div class="username-tips"></div>
+    </div>
+    <div class="row">
+        登录密码：<input type="password" name="password" placeholder="请输入6-16位之间的密码" value="123456">
+        <div class="password-tips"></div>
+    </div>
+    <div class="row">
+        确认密码：<input type="password" name="password2" placeholder="请再次输入登录密码" value="123456">
+        <div class="password2-tips"></div>
+    </div>
+    <div class="row">
+        手机号码：<input type="text" name="mobile" placeholder="请输入手机号码" value="13312345678">
+        <div class="mobile-tips"></div>
+    </div>
+    <div class="raw">
+        注册邮箱：<input type="email" name="email" placeholder="请输入邮箱地址">
+        <div class="email-tips"></div>
+    </div>
+    <input type="submit" value="注册">
+</form>
+<script>
+    // 在2种情况下，进行数据验证
+    // 用户输入完以后验证
+    var username = document.querySelector('input[name="username"]')
+    var password = document.querySelector('input[name="password"]')
+    var password2 = document.querySelector('input[name="password2"]')
+    var mobile = document.querySelector('input[name="mobile"]')
+    var email = document.querySelector('input[name="email"]')
+    var submit = document.querySelector('input[type="submit"]');
+
+    username.onfocus = function(){
+        // 当输入光标进入当前输入框会触发onfocus事件，去除错误提示
+        document.querySelector('.username-tips').innerHTML = "";
+    }
+
+    submit.onclick = function(){
+        let uv = username.value
+        let pv = password.value
+        let pv2 = password2.value
+        let mv = mobile.value
+        let ev = email.value
+        // 校验账号
+        if(uv.length<3 || uv.length>16){
+            document.querySelector('.username-tips').innerHTML = "请输入3-16位之间的账号!"
+            return false;
+        }
+
+        // 校验密码
+        if(pv.length<6 || pv.length > 16){
+            document.querySelector('.password-tips').innerHTML = "请输入6-16位之间的密码!"
+            return false;
+        }
+
+        // 校验确认密码
+        if(pv!=pv2){
+            document.querySelector('.password2-tips').innerHTML = "登录密码与确认密码必须一致！"
+            return false;
+        }
+
+        // 验证手机号
+        if(!/^1[3-9]\d{9}$/.test(mv)){
+            document.querySelector('.mobile-tips').innerHTML = "手机号码格式有误！"
+            return false;
+        }
+
+        // 验证邮箱格式
+        // 1@qq.com
+        // 123213@qq.com
+        if(!/^\w+@\w+\.\w+$/.test(ev)){
+            document.querySelector('.email-tips').innerHTML = "注册邮箱格式有误！"
+            return false;
+        }
+
+    }
+
+
+
+</script>
+</body>
+</html>

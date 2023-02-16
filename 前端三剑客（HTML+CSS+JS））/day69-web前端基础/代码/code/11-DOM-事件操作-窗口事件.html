@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    // // 直接执行肯定报错，我们需要让代码延时执行。
+    // var h1 = document.querySelector("h1"); // 这段代码执行的时候，浏览器根本不知道找到前面的内容有h1出现
+    // console.log(h1);
+    // console.log(h1.innerHTML);
+
+    // 1. 使用window.onload，保证页面内容加载完成以后才执行js代码
+    //    但是window.onload只能使用一次，多次绑定函数，只会识别最后一次
+    window.onload = function(){
+        console.log("window onload")
+        var h1 = document.querySelector("h1"); // 这段代码执行的时候，浏览器根本不知道找到前面的内容有h1出现
+        console.log(h1);
+        console.log(h1.innerHTML);
+    }
+
+    //2. 使用setTimeout来完成延时执行，因为setTimeout的执行时在页面加载完成以后才会执行的
+    //   比window.onload要好用，可以使用多次。
+    setTimeout(()=>{
+        console.log("setTimeout1")
+        var h1 = document.querySelector("h1"); // 这段代码执行的时候，浏览器根本不知道找到前面的内容有h1出现
+        console.log(h1);
+        console.log(h1.innerHTML);
+    }, 0)
+
+    setTimeout(()=>{
+        console.log("setTimeout2")
+        var h1 = document.querySelector("h1"); // 这段代码执行的时候，浏览器根本不知道找到前面的内容有h1出现
+        console.log(h1);
+        console.log(h1.innerHTML);
+    }, 0)
+
+    </script>
+</head>
+<body>
+<h1>标题</h1>
+<script>
+    // window.onload = function(){
+    //     console.log("页面加载完成才会触发当前事件！！")
+    // }
+    console.log("hello")
+
+
+</script>
+</body>
+</html>

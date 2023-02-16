@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .btn2, .btn3, .btn4{
+        width: 100px;
+        height: 42px;
+        background: red;
+    }
+    .btn4{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+</head>
+<body>
+<!--    <button class="btn1">点击跳转到百度</button>-->
+<!--    <div class="btn2"></div>-->
+<!--    <div class="btn3"></div>-->
+    <div class="btn4"></div>
+    <script>
+    // // click 点击事件
+    // var btn1 = document.querySelector(".btn1")
+    // btn1.onclick = function(){
+    //     location.assign("https://www.baidu.com")
+    // }
+    //
+    // // dblclick 双击事件[一秒内连续鼠标点击2次]
+    // var btn2 = document.querySelector(".btn2")
+    // btn2.ondblclick = function(){
+    //     btn2.style.background = "yellow";
+    // }
+    //
+    // // mouseover 鼠标悬放
+    // var btn2 = document.querySelector(".btn2")
+    // btn2.onmouseover = function(){
+    //     console.log("只要鼠标在当前元素上方悬放就会触发一次")
+    //     btn2.style.background = "orange";
+    // }
+    //
+    // // mouseout 鼠标离开
+    // var btn2 = document.querySelector(".btn2")
+    // btn2.onmouseout = function(){
+    //     console.log("只要鼠标从当前元素上方离开就会触发一次")
+    //     btn2.style.background = "red";
+    // }
+    //
+    // // mousedown 鼠标按下
+    // var btn3 = document.querySelector(".btn3")
+    // btn3.onmouseout = function(){
+    //     console.log("只要鼠标从当前元素上方离开就会触发一次")
+    //     btn3.style.background = "red";
+    // }
+    //
+    // // mousedown 鼠标按下
+    // var btn3 = document.querySelector(".btn3")
+    // btn3.onmousedown = function(){
+    //     console.log("鼠标在当前元素范围内按下，就会触发事件")
+    //     btn3.style.background = "blue";
+    // }
+    //
+    // // mouseup 鼠标松开
+    // var btn3 = document.querySelector(".btn3")
+    // btn3.onmouseup = function(){
+    //     console.log("鼠标在当前元素范围内从按下变成松开，就会触发事件")
+    //     btn3.style.background = "green";
+    // }
+
+    // // mousemove 鼠标移动
+    // var btn4 = document.querySelector(".btn4")
+    // btn4.onmousemove = function(event){
+    //     console.log("鼠标在当前元素范围内移动，就会触发事件")
+    //     // console.log(this.offsetLeft) // 距离浏览器窗口左边的宽度
+    //     // console.log(event.clientX)   // 当前事件发生时，鼠标位置距离浏览器窗口左边的宽度
+    //     console.log(event.offsetX)      // 当前事件发生时，鼠标位置距离当前元素的左边的宽度
+    // }
+
+    // 鼠标拖拽效果[基于原生js提供的鼠标按下事件，和鼠标移动事件]
+    var btn4 = document.querySelector(".btn4")
+    btn4.onmousedown = function(event){
+        // 鼠标按下
+        let startX = event.clientX-this.offsetLeft; // 记录每次鼠标按下时坐标
+        let startY = event.clientY-this.offsetTop;
+        btn4.onmousemove = function(e){
+            // 鼠标移动
+            this.style.left = `${e.clientX - startX}px`; // 计算鼠标移动的距离
+            this.style.top = `${e.clientY - startY}px`;
+        }
+    }
+
+    btn4.onmouseup = function(){
+        console.log("鼠标离开了当前元素范围！");
+        btn4.onmousemove = null;
+    }
+    </script>
+</body>
+</html>

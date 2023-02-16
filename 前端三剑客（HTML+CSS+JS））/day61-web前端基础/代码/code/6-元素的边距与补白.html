@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .box1{
+        max-width: 1600px;
+        background-color: red;
+        margin: 0 auto;
+    }
+    .box2{
+        height: 250px;
+        background-color: red;
+        /*margin-top: 100px;*/
+        /*margin-right: 150px;*/
+        /*margin-bottom: 250px;*/
+        /*margin-left: 150px;*/
+        /*margin: 100px 150px 250px 150px; !* 上面的简写 上 右 下 左 顺时针方向  *!*/
+        /*margin: 100px 150px 250px; !* 上面的简写 上 左右 下*!*/
+        /*margin: 150px 150px; !* 上面的简写 上下 左右 *!*/
+        margin: 150px; /* 上面的简写 四个方向 */
+    }
+    .box3{
+        width: 150px;
+        height: 50px;
+        background-color: yellow;
+        /*padding-top: 50px;*/
+        /*padding-right: 50px;*/
+        /*padding-bottom: 20px;*/
+        /*padding-left: 50px;*/
+        /*padding: 50px 50px 20px 50px; !* 上面的简写：上 右 下 左 顺时针方向 *!*/
+        /*padding: 50px 50px 20px; !* 上面的简写 上 左右 下 *!*/
+        /*padding: 50px 50px; !* 上面的简写 上下 左右 *!*/
+        padding: 50px; /* 上面的简写 四个方向 */
+    }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        内容居中
+    </div>
+    <div class="box2">
+        外边距设置
+        <div class="box3">
+            内边距设置
+        </div>
+    </div>
+    <p>一个普通p标签</p>
+</body>
+</html>

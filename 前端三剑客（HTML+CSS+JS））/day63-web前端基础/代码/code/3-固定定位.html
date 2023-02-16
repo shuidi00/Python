@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    div{
+        width: 150px;
+        height: 150px;
+        background: red;
+    }
+    .parent{
+        width: 400px;
+        height: 300px;
+    }
+    .box1{
+        width: 120px;
+        height: 120px;
+        background: orange;
+    }
+    .parent .box1{
+        position: fixed; /* 设置当前元素相对于窗口进行定位显示，不会因为滚动条而滚动 */
+        right: 0;
+    }
+    </style>
+</head>
+<body style="height: 10000px;">
+    <div class="parent">
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

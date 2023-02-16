@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <ul>
+        <li>1-内容</li>
+        <li onclick="show_data(this)">2-内容</li>
+        <li class="li3">3-内容</li>
+        <li>4-内容</li>
+        <li>5-内容</li>
+    </ul>
+<script>
+    // var li = document.querySelector("li")
+    // // 动态绑定事件：在js中获取元素，并基于元素对象进行事件绑定
+    // li.onclick = function(){
+    //     console.log(this.innerHTML)
+    // }
+    //
+    // // 静态绑定事件：在html标签中，使用属性的方式来绑定事件
+    // function show_data(element){
+    //     console.log(element); // element就是当前触发事件时传递进行来的当前元素对象
+    //     console.log(event);   // 静态绑定事件触发时，当前事件对象
+    // }
+    //
+    // /*动态绑定在工作中更加常用*/
+    // // 事件解绑，绑定时是什么类型的事件，解绑时就要对当前类型事件进行赋值为null
+    // li.onclick = null;
+
+
+    /**
+     * addEventListner(事件类型，事件处理函数)      绑定事件
+     * removeEventListner(事件类型，事件处理函数)   解绑事件
+     * EventListner 表示事件监听器，是属于js事件操作的最新用法，
+     * onclick属于level1.0版本的事件处理机制，无法对同一个元素多次绑定事件处理函数，
+     * EventListner属于level3.0版本的事件处理机制，可以对同一个元素多次绑定事件处理函数
+     */
+    var li3 = document.querySelector(".li3")
+
+    // 事件处理函数，可以是任意函数
+    var li_click = (event)=>{
+        console.log("li_click")
+        console.log(event);
+        console.log(event.target); // target 可以获取当前事件触发时的元素对象
+    }
+
+    var li2_click = (event)=>{
+        console.log("li2_click")
+        console.log(event);
+        console.log(event.target); // target 可以获取当前事件触发时的元素对象
+    }
+
+    li3.addEventListener("click", li_click);
+    li3.addEventListener("click", li2_click);
+    // 事件解绑时，要指定解绑的是哪一个函数
+    // li3.removeEventListener("click", li_click);
+
+    // 针对元素如果使用level3.0的事件处理机制，绑定多次事件处理函数时，
+    // 可以通过F12浏览器调试工具->console->EventListeners来查看
+</script>
+</body>
+</html>

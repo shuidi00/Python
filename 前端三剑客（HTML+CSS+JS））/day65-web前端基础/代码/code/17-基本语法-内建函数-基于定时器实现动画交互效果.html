@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    div{
+        width: 150px;
+        height: 150px;
+        background: red;
+    }
+    .box2{
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+<!--    <div class="box1"></div>-->
+<!--    <script>-->
+<!--    document.querySelector(".box1").onclick = function(){-->
+<!--        console.log(this); // 在方法中，可以通过this获取当前对象-->
+<!--        var num = 0;-->
+<!--        // 使用定时器集合css样式实现动画的核心就是让整个过程中涉及到的数值在定时器中进行计算-->
+<!--        setInterval(()=>{-->
+<!--            this.style.borderRadius = `${num++}px`;-->
+<!--        }, 24);-->
+<!--    }-->
+<!--    </script>-->
+
+<!--    <div class="box2"></div>-->
+<!--    <script>-->
+<!--    var box2 = document.querySelector(".box2")-->
+<!--    box2.style.left = 0;-->
+<!--    var num = 1;-->
+<!--    var t;-->
+<!--    box2.onclick = ()=>{-->
+<!--        clearInterval(t);-->
+<!--        t = setInterval(()=>{-->
+<!--            num *= 1.1; // 实现先慢后块（ease-in）-->
+<!--            console.log(num);-->
+<!--            box2.style.left = `${num}px`;-->
+<!--            if(num>=1200){-->
+<!--                clearInterval(t);-->
+<!--            }-->
+<!--        }, 24);-->
+<!--    }-->
+<!--    </script>-->
+
+        <div class="box3"></div>
+        <script>
+        var box3 = document.querySelector(".box3");
+        box3.style.opacity = 1; // 设置不透明
+        var t;
+        box3.onclick = ()=>{
+            clearInterval(t);
+            t = setInterval(()=>{
+                box3.style.opacity-=0.01;
+                if(box3.style.opacity < 0){
+                    box3.style.display = "none";
+                    clearInterval(t);
+                }
+            },24);
+        }
+        </script>
+        <div></div>
+</body>
+</html>

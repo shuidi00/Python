@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // 解包，解构，全接收
+    // var data = ["A1", "A2", "A3", "A4"];
+    // var [str1, str2, str3, str4] = data; // 按位置赋值
+    // console.log(str1, str2, str3, str4);  // A1 A2 A3 A4
+
+    // js中目前不支持赋值组包，所以代码会报错
+    // var data = "A1", "A2", "A3"
+
+
+    // // 解包，顺序接收，可以只接收部分成员
+    // var data = ["A1", "A2", "A3", "A4"];
+    // var [str1, , str] = data;
+    // console.log(str1, str); // A1 A3
+
+
+    // // 解包，指定默认值，如果成员值为undefined则采用默认值，其他的都按位赋值，包括null
+    // var data = ["A1", null, undefined, "A4"];
+    // var [str1, str2 = "abc", str3 = "默认值"] = data;
+    // console.log(str1, str2, str3); // A1 null 默认值
+
+
+    // 解包，接收剩余数据
+    var data = ["A1", "A2", "A3", "A4"];
+    var [str1, str2, ...surplus] = data;
+    console.log(surplus); // ["A3", "A4"]
+
+</script>
+</body>
+</html>

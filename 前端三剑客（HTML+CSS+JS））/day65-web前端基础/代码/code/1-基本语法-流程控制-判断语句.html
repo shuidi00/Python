@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="age"><button id="btn">判断年龄</button>
+    <script>
+    document.querySelector("#btn").onclick = function(){
+        let age = parseInt(document.querySelector('[name="age"]').value)
+        /**
+         * 单个条件分支
+         */
+        // if(age<18){
+        //     console.log("未成年");
+        // }
+        // /**
+        //  * 单个条件2个分支
+        //  */
+        // if(age<18){
+        //     console.log("未成年");
+        // }else{
+        //     console.log("成年")
+        // }
+        /**
+         * 多条件分支
+         */
+        if(age<18){
+            console.log("未成年");
+        }else if(age<30){
+            console.log("青少年");
+        }else if(age<60){
+            console.log("中青年");
+        }else{
+            console.log("老年");
+        }
+    }
+    </script>
+</body>
+</html>

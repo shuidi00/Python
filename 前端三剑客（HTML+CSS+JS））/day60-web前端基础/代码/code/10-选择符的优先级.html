@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    /* 通配选择符的优先级比类型选择符的要低 */
+    *{
+        text-decoration: none;
+        color:red;
+    }
+    p{
+        color: blue;
+    }
+    /*
+    子选择符与包含选择符 比 类型选择符的优先级要高。
+    子选择符与包含选择符的优先级一样的，嵌套层级一样时，谁写在后面，就优先显示谁
+    如果嵌套不一样，则嵌套层级越多的，优先级越高。
+     */
+    b {
+        background-color: red;
+        color: white;
+    }
+
+    body>p>b{
+        background-color: green;
+        color: red;
+    }
+    p b {
+        background-color: blueviolet;
+        color: pink;
+    }
+
+    /* 类选择符的优先级比包含选择符或子选择符的优先级要高 */
+    .p3{
+        background-color: yellow;
+    }
+
+    body p {
+        background-color: blue;
+    }
+
+    /* 属性选择符与类选择符的优先级是一样的。 */
+    [type=text]{
+        border: 1px solid blue;
+    }
+    .input{
+        border: 1px solid red;
+    }
+
+    /**/
+    </style>
+</head>
+<body>
+    <a href="">超链接</a>
+    <p class="p1"><b>第1个p标签</b></p>
+    <p class="p3"><b>第2个p标签</b></p>
+    <p class="p2">第3个p标签</p>
+    <p class="p3">第4个p标签</p>
+
+    <input class="input" type="text" value="请输入昵称"><br><br>
+    <input class="input" type="text" value="请输入账号"><br>
+
+</body>
+</html>

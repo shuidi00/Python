@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // 输出1-10之间的整数
+
+    // var num = 1; // 1. 初始化值
+    // while(num<=10){ // 2. 判断条件
+    //     console.log(num); // 3. 条件为true时，执行代码块内容
+    //     num++;  // 4. 步进器，循环每一步的递增值，目的是让循环条件慢慢变得不成立
+    // }
+
+    /**
+     for(1. 初始值; 2. 判断条件; 4. 步进器){
+        // 3. 代码块
+     }
+     */
+    // for(let num = 1; num<=10; num++){
+    //     console.log(num);
+    // }
+
+    // for循环还可以在初始化值，判断条件或步进器都可以设置多段语句，采用英文逗号隔开
+    // for(let x = 1, y=10; x*3<=y; x++,y+=2){
+    //     console.log(`x=${x}, y=${y}`);
+    // }
+
+    // for还可以嵌套使用，当然while循环也可以
+    // // 九九乘法表
+    // var content;
+    // for(let x=1; x<=9; x++){
+    //     content = "";
+    //     for(let y=1;y<=x;y++){
+    //         content += `${x}*${y}=${x*y} `
+    //     }
+    //     console.log(content);
+    // }
+
+    /**
+     * for 遍历数组，获取下标
+     */
+    // var colorList = ["red", "orange", "yellow", "green", "#00ffff", "blue", "#ff00ff"];
+    // for(let item in colorList){
+    //     // item代表的是遍历过程中数组成员的下标
+    //     console.log(item, colorList[item])
+    // }
+
+    /**
+     * for遍历数组，获取值
+     */
+    colorList = ["red", "orange", "yellow", "green", "#00ffff", "blue", "#ff00ff"];
+    for(let item of colorList){
+        // item代表的是遍历过程中数组成员的值
+        console.log(item)
+    }
+
+    </script>
+</body>
+</html>

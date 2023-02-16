@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body, ul, li, a, menu{
+        margin: 0;
+        padding: 0;
+    }
+    menu, ul{list-style: none}
+    a{
+        text-decoration: none;
+    }
+    header{
+        height: 40px;
+        background: #333;
+    }
+    .header-top{
+        width: 1226px;
+        margin: 0 auto;
+    }
+    .header-top::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .header-top menu{
+        float: left;
+    }
+    .sectionbar{
+        float: right;
+    }
+    .header-top menu li {
+        float: left;
+    }
+    .header-top li a{
+        color: #b0b0b0;
+        line-height: 40px;
+        display: block;
+        font-size: 12px;
+    }
+    .header-top li a:hover{
+        color: #fff;
+    }
+    .header-top .sep{
+        margin: 0 8px;
+        color: #424242;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    .sectionbar li{
+        float: left;
+    }
+    .sectionbar a{
+        padding: 0 5px;
+        text-align: center;
+    }
+    .sectionbar .sep{
+        margin: 0;
+    }
+    .sectionbar .cart{
+        width: 120px;
+    }
+    .download-app{
+        position: relative;
+    }
+    .download-app .img-box{
+        position: absolute;
+        display: none;
+    }
+    .download-app:hover .img-box{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <menu>
+                <li><a href="">小米商城</a></li>
+                <li class="sep">|</li>
+                <li><a href="">MIUI</a></li>
+                <li class="sep">|</li>
+                <li><a href="">IoT</a></li>
+                <li class="sep">|</li>
+                <li><a href="">云服务</a></li>
+                <li class="sep">|</li>
+                <li><a href="">天星数科</a></li>
+                <li class="sep">|</li>
+                <li><a href="">有品</a></li>
+                <li class="sep">|</li>
+                <li><a href="">小爱开放平台</a></li>
+                <li class="sep">|</li>
+                <li><a href="">企业团购</a></li>
+                <li class="sep">|</li>
+                <li><a href="">资质证照</a></li>
+                <li class="sep">|</li>
+                <li><a href="">协议规则</a></li>
+                <li class="sep">|</li>
+                <li class="download-app">
+                    <a href="">下载app</a>
+                    <div class="img-box"><img src="//i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城" width="90" height="90"></div>
+                </li>
+                <li class="sep">|</li>
+                <li><a href="">Select Location</a></li>
+            </menu>
+            <ul class="sectionbar">
+                <li><a href="">登录</a></li>
+                <li class="sep">|</li>
+                <li><a href="">注册</a></li>
+                <li class="sep">|</li>
+                <li><a href="">消息通知</a></li>
+                <li class="sep">|</li>
+                <li class="cart"><a href="">购物车</a></li>
+            </ul>
+        </div>
+    </header>
+</body>
+</html>

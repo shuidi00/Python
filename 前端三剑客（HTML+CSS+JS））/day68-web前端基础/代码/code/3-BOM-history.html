@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="goto1()">前进一个页面</button>
+<button onclick="back1()">后退一个页面</button>
+<script>
+    console.log(history);
+    // 浏览器历史中关于当前窗口操作的历史信息数量
+    console.log(history.length);
+
+    // 操作历史记录
+    function goto1(){
+        // history.go(1); // 控制浏览器的页面前进一个页面，这是在浏览器有前进的历史记录的情况下
+        // go 在有足够数量的历史记录的情况下，可以设置其他的数量的跳转，不仅可以正数前进跳转，还可以负数后退跳转
+        history.forward()
+    }
+
+    function back1(){
+        // history.go(-1); // 控制浏览器的页面后退一个页面，这是在浏览器有后退的历史记录的情况下
+        history.back()
+    }
+</script>
+</body>
+</html>

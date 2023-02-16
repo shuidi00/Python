@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 数组代表的是一组数据，这组数据可以有0或多个。数组中的数据也叫成员，
+// 类似python里面的列表，数组里面有多个成员。每个成员的值可以是任意类型。
+
+// js的数组有2种声明方式：
+// 1. 字面量声明方式
+// 格式：var 变量名 = ["成员1",成员2....]
+
+// 0个成员的空数组
+var arr0 = []
+console.log(arr0, typeof arr0); // [] "object"
+// 注意：js中无法通过typeof辨认区别数组与对象的区别，因为数组就是一种对象。
+
+// 数组可以有多个成员
+var arr1 = ["苹果","香蕉","梨子","水牛"]
+console.log( arr1, Array.isArray(arr1) );  // ["苹果", "香蕉", "梨子", "水牛"] true
+// 通过Array数组类的isArray方法可以用于判断指定变量是否是数组，true表示是数组，false表示不是数组
+
+
+// 2. 通过Array函数，创建数组
+var arr2 = Array(); // Array本身就是一个用于创建对象的函数，虽然叫类，但实际上内部就是函数，也可以不使用new关键字
+console.log(arr2, Array.isArray(arr2)); // [] true
+
+// 有成员的数组
+var arr3 = Array("苹果","香蕉","梨子","水牛"); // 函数中的参数中传递数组的成员
+console.log( arr3, Array.isArray(arr3) ); // ["苹果", "香蕉", "梨子", "水牛"] true
+
+
+// 3. 通过new Array来创建，创建数组对象
+// 空数组
+var arr4 = new Array(); // new 表示创建，新建
+console.log(arr4, Array.isArray(arr4)); // [] true
+
+// 有成员的数组
+var arr5 = Array("苹果","香蕉","梨子","水牛"); // 函数中的参数中传递数组的成员
+console.log( arr5, Array.isArray(arr5) ); // ["苹果", "香蕉", "梨子", "水牛"] true
+
+
+// 创建指定成员数量的数组
+var arr6 = new Array(3); // 此处的3并非成员，而是表示创建有3个成员的数组，默认三个成员都是null的
+console.log( arr6, Array.isArray(arr6) ); // [empty × 3] true
+
+
+// js中的数组的使用，类似python的列表，也可以通过下标来获取指定位置的成员。
+// 下标都是从0开始，逐一递增，但是js中的数组不支持切片或者负数下标
+var arr7 = ["苹果","香蕉","梨子","水牛"]
+console.log(arr7[0]); // 获取第1个成员的值
+console.log(arr7[1]); // 获取第2个成员的值
+
+
+// js的数组同时也可以通过下标来修改对应位置的成员的值。
+arr7[0] = "小苹果";
+console.log(arr7);
+arr7[3] = "大水牛";
+console.log(arr7); // ["小苹果", "香蕉", "梨子", "大水牛"]
+
+// js中如果设置-1，实际上并不代表原来的数组的最后一个成员，而是表示新增了一个下标为-1的成员
+arr7[-1] = "hello"
+console.log(arr7);
+
+// js中的数组是对象，所有数组中的下标实际上就是属性，下标对应的成员值就是属性值
+arr7["money"] = 200
+console.log(arr7) // ["小苹果", "香蕉", "梨子", "大水牛", -1: "hello", money: 200]
+
+// 获取数组的成员个数，也就是数组的长度，当然，仅仅只是计算下标的成员数量，像负数下标，或字符串格式的下标，会被认为是非数组成员，而是对象的属性。
+console.log(arr7.length)
+
+// 所以，建议使用js中的数组时，尽量不要添加负数下标或者字符串下标的成员进来，会影响长度计算。
+arr8 = ["小苹果", "香蕉", "梨子", "大水牛"]
+console.log(arr8);
+
+// 基于数组的长度，我们就可以随时获取数组的最后一个成员了。
+console.log(arr8[arr8.length-1])  // 大水牛
+
+// 数组的成员也可以新增或追加
+// 通过指定新的下标来新增数组成员
+arr9 = ["苹果"]
+arr9[1] = "香蕉"
+arr9[2] = "葡萄"
+arr9[5] = "梨子" // 注意：尽量不要跳数字下标添加数组成员，否则跳过的数字下标会被认为空成员记录到数组，影响数组的长度计算。
+console.log(arr9)  // ["苹果", "香蕉", "葡萄", empty × 2, "梨子"]
+
+// 建议追加数组成员
+arr10 = ["苹果"]
+arr10[arr10.length] = "香蕉"
+arr10[arr10.length] = "哈密瓜"
+console.log(arr10)
+
+// 通过数组提供的push方法来追加数组成员
+arr11 = ["苹果"]
+arr11.push("香蕉")
+arr11.push("梨子", "水牛")
+console.log(arr11) // ["苹果", "香蕉", "梨子", "水牛"]
+
+// 通过数组提供的unshift方法在数组的左边插入成员
+arr12 = ["苹果"]
+arr12.unshift("香蕉")
+arr12.unshift("梨子", "水牛")
+console.log(arr12)  // ["梨子", "水牛", "香蕉", "苹果"]
+
+// 删除成员[不要使用delte删除，不干净，会影响计算数组长度]
+arr13 = ["A", "B", "C", "D"]
+delete arr13[1]
+console.log(arr13)
+
+// 使用数组提供的方法删除成员
+arr14 = ["A", "B", "C", "D"]
+arr14.shift() // 删除左边第一个成员
+arr14.shift() // 删除左边第一个成员
+console.log(arr14)  // ["C", "D"]
+
+// 删除数组的最后一个成员
+arr15 = ["A", "B", "C", "D"]
+arr15.pop()
+console.log(arr15)  // ["A", "B", "C"]
+
+// 删除数组的指定下标的指定数量成员
+arr16 = ["A", "B", "C", "D"]
+arr16.splice(2,1)  // 从下标为2开始删除1个成员，当然splice是一个高级函数，提供了数组的删除操作以后，还有新增，替换等功能
+console.log(arr16)
+
+// 嵌套数组，js中的数组与python一样，可以嵌套多层
+arr17 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+console.log(arr17)
+console.log(arr17[1])    // 访问第一个成员
+console.log(arr17[1][2]) // 访问第一个成员数组的第二个成员
+
+</script>
+</body>
+</html>

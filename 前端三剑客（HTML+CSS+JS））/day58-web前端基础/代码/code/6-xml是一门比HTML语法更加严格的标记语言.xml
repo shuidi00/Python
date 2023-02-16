@@ -1,0 +1,9 @@
+<xml version="1.0" encoding="utf-8">
+    <goods>
+        <title>一本书的标题</title>
+        <price>79.50</price>
+        <description>书的介绍</description>
+        <comment>注意，除了上面第一行的xml标签以外，其他的标签都是开发人员自定义的，只需要标签成对闭合，如果不闭合就报错</comment>
+    </goods>
+    <goods price="79.50" description="书的介绍">一本书的标题</goods>
+</xml>

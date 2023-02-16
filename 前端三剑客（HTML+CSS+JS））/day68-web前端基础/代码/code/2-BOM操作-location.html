@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // console.log(location)
+   /**
+     * url地址的固定格式：
+     *    协议名称://IP或域名:端口/路径?查询字符串#锚点
+     *    protocol://hostname:port/pathname?query_srting#hash
+
+    * protocol 协议,web中常见的协议：http、https、ws、wss、file、ftp
+     * 域名（域名一般需要到域名商处购买，按年购买）：
+     *      顶级域名（一级域名）： baidu.com
+     *      二级域名： www.baidu.com   music.baidu.com  tieba.baidu.com
+     *      三级域名： python.tieba.baidu.com
+     *      ....
+     * 端口: 一般如果是协议本身的默认端口，可以不填。http协议的默认端口是80，https端口时443
+     * 路径：表示当前访问的资源(文件/数据)在目标服务器中的具体地址
+     * 查询字符串(query_string/query_params)，在js中也叫search,
+     *      ?name=xiaoming&page=1&xxx=xxx&....
+     * 锚点(hash)：指定的是当前显示的内容在网页中的位置
+     */
+    // // 获取地址栏上的信息
+    // console.log(location.href)   // 获取完整地址信息
+    // console.log(location.origin) // 获取服务器的地址信息
+    // console.log(location.pathname) // 获取当前页面所在的路径地址
+    // console.log(location.search)   // 获取当前页面的查询字符串
+
+    // 操作地址栏
+    setInterval(()=>{
+        console.log("hello")
+        location.reload()  // 相当于F5，重载当前页面，就是刷新当前页面
+    },5000);
+
+    // 页面跳转
+    function jump_baidu(){
+        location.assign("http://www.baidu.com")
+        // location.href = "http://www.baidu.com"  // 新版本的js中不再建议使用，建议使用assign方法
+    }
+
+    jump_baidu();
+
+</script>
+</body>
+</html>

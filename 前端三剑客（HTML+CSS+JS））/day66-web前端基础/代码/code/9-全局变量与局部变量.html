@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * js中的变量查找，是从内往外按作用域逐层查找的: 当前作用域->父级作用域->顶级作用域
+     * 查找过程中，如果找到则取值，停止查找流程。如果直到顶级作用域下还是没有对应的变量，则报错。
+     * 注意：js中，函数名、类名、变量名都是变量，最终在内存中存储的方式都是函数。
+     *
+     *
+     */
+     // var num = 0;
+     // // 全局作用域[顶级作用域]
+     // function fn1(){ // fn1作用域
+     //     console.log(num); // 查找到当前作用域下，已经存在了num，只是没有赋值，所以是undefined
+     //     var num = 10;
+     //     function fn2(){ // fn2作用域，fn1是fn2的父级作用域
+     //         let num = 20;
+     //         console.log(num);
+     //     }
+     //     fn2();
+     // }
+     // fn1();
+
+    // 面试题，一套非常坑人的题目
+    function fn1(){
+        // console.log(num);  // 为什么31与32存在时，31行会报错呢？因为32中的num没有使用var或者let，所以在词法阶段，根本没有分配到空间，也没有创建对应的变量。
+        // num = 2;
+        function fn2(){
+            num = 2; // 此处num首次出现却不使用var声明时，这该变量会默认作为window对象的属性存在，js中调用window的属性或方法，是不需要写上window的。
+            console.log(num); // 2
+        }
+        fn2();
+        console.log(num); // 2
+    }
+    fn1();
+    console.log(num); // 2
+
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .banner{
+        width: 632px;
+        height: 340px;
+        position: relative;
+    }
+    .img-list{
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+    }
+    .img-list .img:nth-child(n+2){ /* 除了第一个默认显示以外，后面的全部隐藏 */
+        display: none;
+    }
+    .btn-list .btn-left{
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -84px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-left:hover{
+        background: url("assets/images/icon-slides.png") 0 0;
+    }
+    .btn-list .btn-right{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 41px;
+        height: 69px;
+        background: url("assets/images/icon-slides.png") -124px 0;
+        cursor: pointer;
+    }
+    .btn-list .btn-right:hover{
+        background: url("assets/images/icon-slides.png") -41px 0;
+    }
+    .btn-number{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    .btn-number.num span{
+        cursor: pointer;
+        border: 1px solid cornflowerblue;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number.num span:hover{
+        background-color: cornflowerblue;
+        color: #fff;
+    }
+    .btn-number span{
+        cursor: pointer;
+        border: 2px solid #999;
+        background-color: #999;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        line-height: 10px;
+        text-indent: 2rem;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 50px;
+        margin: 4px;
+    }
+    .btn-number span:hover, .btn-number .current{
+        background-color: #ddd;
+    }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="img-list">
+            <div class="img">
+                <a href=""><img src="assets/images/banner-1.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-2.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-3.jpg" alt=""></a>
+            </div>
+            <div class="img">
+                <a href=""><img src="assets/images/banner-1.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="btn-list">
+            <div class="btn-left"></div>
+            <div class="btn-right"></div>
+            <div class="btn-number"></div>
+        </div>
+    </div>
+
+    <script>
+    // 轮播图切换图片效果
+    var list = document.querySelector('.img-list')
+    var bumBtn = document.querySelector('.btn-number');
+
+    var HTML = ""
+    for (let i = 0; i<list.children.length;i++){
+        if(i === 0){
+            HTML+= `<span class="current">${i+1}</span>`
+        }else{
+            HTML+= `<span>${i+1}</span>`
+        }
+    }
+    bumBtn.innerHTML = HTML;
+
+    /**
+     * 点击左右按钮切换图片
+     */
+    var btnLeft = document.querySelector('.btn-left')
+    var btnRight = document.querySelector('.btn-right')
+    var imgList = list.children;
+    var currentIndex = 0; // 当前显示图片的下标
+    var timer = null;
+
+    function change(){
+        for(let index=0; index<imgList.length;index++){
+            imgList[index].style.display = "none";
+            bumBtn.children[index].className = "";
+            if(index===currentIndex){
+                imgList[currentIndex].style.display = "block";
+                bumBtn.children[currentIndex].className = "current";
+                imgList[currentIndex].style.opacity = 0;
+            }
+        }
+
+        clearInterval(timer);
+        let curImg = imgList[currentIndex];
+        timer = setInterval(()=>{
+            curImg.style.opacity = parseFloat(curImg.style.opacity) + 0.1;
+            if(curImg.style.opacity>=1){
+                clearInterval(timer);
+            }
+        },1000/60)
+    }
+
+    // 右边按钮
+    btnRight.onclick = function(){
+        currentIndex++;
+        if(currentIndex>=imgList.length){
+            currentIndex=0;
+        }
+        change()
+    }
+
+    // 左边按钮
+    btnLeft.onclick = function(){
+        currentIndex--;
+        if(currentIndex<0){
+            currentIndex=imgList.length-1;
+        }
+        change()
+    }
+
+    // 数字按钮添加点击切换图片效果
+    for (let i = 0;i<bumBtn.children.length; i++){
+        let currentBtn = bumBtn.children[i];
+        currentBtn.onclick = ()=>{
+            currentIndex = i;
+            change()
+        }
+    }
+
+    </script>
+
+</body>
+</html>

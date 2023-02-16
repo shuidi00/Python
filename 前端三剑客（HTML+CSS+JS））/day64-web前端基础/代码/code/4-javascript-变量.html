@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 变量的声明，变量如果首次出现，强烈建议使用var或者let关键字作为变量声明的前缀语句
+        var num = 200;
+        alert(num);
+        let age = 17;
+        alert(age);
+
+        // 变量声明完成以后，后续的变量使用就不需要var或let关键字
+        num = 300;  // 修改变量的值，如果当前变量是首次出现，则表示赋值
+        alert(num);
+        age = age + 1; // 变量的叠加
+        alert(age);
+
+        // 一旦定义以后，值不可变的变量，叫常量[constant variable]
+        const URL = "http://www.baidu.com"
+        alert(URL)
+
+        // 错误的操作：重新给一个常量进行赋值。
+        // URL = "http://www.tmall.com"
+        // alert(URL)
+
+        // var 与 let 的区别
+        {
+            let i =20;
+            console.log(i);
+        }
+        // let的作用域级别是语句级别，var的作用域级别是函数级别
+        console.log("i最终的值是", i);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+callback({"name": "xiaoming", "age":16})

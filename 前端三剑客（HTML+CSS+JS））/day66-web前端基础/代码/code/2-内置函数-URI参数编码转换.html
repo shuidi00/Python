@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    // content = "内置函数+/"
+    // // 编码
+    // url_content = encodeURI(content)
+    // console.log(url_content)
+    // // 解码
+    // result = decodeURI(url_content)
+    // console.log(result)
+
+    // 上面的encodeURI与decodeURI仅仅能对普通内容进行编码转换，但是不能对特殊符号进行内容转换。
+    content = btoa("+=")
+    url_content = encodeURIComponent(content)
+    console.log(url_content)
+    // 解码
+    result = decodeURIComponent(url_content)
+    console.log(result)
+    </script>
+</body>
+</html>

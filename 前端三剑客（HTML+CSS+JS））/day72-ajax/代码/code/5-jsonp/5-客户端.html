@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="username" value="小明">
+    <button class="btn">发送数据</button>
+    <script>
+    var btn = document.querySelector('.btn')
+    var user = document.querySelector('input[name="username"]')
+    btn.onclick = function(){
+        // <script src="http://127.0.0.1:8000/1.js?username=xiaoming&func=callback"><//script>
+        let script = document.createElement("script")
+        script.src= `http://127.0.0.1:8000/search?username=${user.value}&func=callback`
+        document.head.append(script)
+    }
+    function callback(data){
+        console.log(data);
+    }
+
+    </script>
+</body>
+</html>

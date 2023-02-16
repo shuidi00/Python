@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 表示逻辑运算或者比较以后产生的结果。只有2个值。
+// true，表示真，正确，成立.
+// false，表示假，错误，不成立。
+var ret1 = true;
+console.log( ret1, typeof ret1);  // true "boolean"
+
+var ret2 = false;
+console.log( ret2, typeof ret2);  // false, "boolean"
+
+// 布尔值是一个关键字，也叫字面量，不能加上引号，否则会被当成字符串！！
+var ret3 = 'true';
+console.log( ret3, typeof ret3 ); // true string
+
+// 与python不同，布尔值不能首字母大写，必须全部小写！
+// 而且python3中的布尔值实际上就是数值类型，但是js中布尔类型就是独立的数据类型，
+// 当然因为js是属于弱类型语言，可以布尔值转换成整型而已。
+
+var ret4 = 1 > 2;
+console.log(ret4, typeof ret4); // false "boolean"
+
+var ret5 = 1 < 2;
+console.log(ret5, typeof ret5); // true "boolean"
+
+
+</script>
+</body>
+</html>

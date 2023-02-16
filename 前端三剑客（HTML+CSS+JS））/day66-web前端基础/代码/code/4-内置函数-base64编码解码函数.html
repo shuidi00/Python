@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // base64是一个网络数据传输的数据转码函数，主要目的是为了避免在网络数据传输过程中，二进制数据与多字节数据的丢失。
+    // python中也有内置模块base64模块提供了 base64.b64encode()、base64.b64decode()
+    data = '{"name": "xiaoming","age": 17}'
+    content = btoa(data) // base64编码函数
+    // console.log(content)  // "eyJuYW1lIjogInhpYW9taW5nIiwiYWdlIjogMTd9"
+
+    // content = "eyJuYW1lIjogInhpYW9taW5nIiwiYWdlIjogMTd9"
+    // data = atob(content)  // 解码函数
+    // console.log(data) // {"name": "xiaoming","age": 17}
+    // // base64不是加密，而是一种编码处理而已。
+
+    </script>
+</body>
+</html>

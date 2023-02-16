@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // js属于解释器语言，所以针对代码的运行实际上分了2个阶段：词法解析 与 代码执行。
+    // // 普通函数与匿名函数除了在代码的运行阶段上分配空间的时间不一样以外，其他的操作都是一样的。
+    // // 普通函数分配空间是在词法解析阶段分配的。
+    // // 匿名函数分配空间是在代码执行阶段分配的。
+    // function abc(){
+    //     console.log("hello")
+    // }
+    // var func = abc  // 在js中实际上分2部执行的， 词法解析阶段先执行 var func; 代码执行阶段后执行 func = abc;
+    // func();
+    // abc();
+    //
+    //
+    // // 箭头函数实际上并不是匿名函数的简写，而是一种特殊的匿名函数。
+    // // 箭头函数分配空间也是在代码执行阶段分配的。
+    // let fn = (a,b) => { // 箭头函数的参数列表，在只有一个形参的情况下， let fn = a => {}
+    //     return a+b
+    // }
+    // console.log( fn(10,20) );
+    //
+    // // 简写效果：
+    // let fn2 = (a,b) => a+b;  // 如果箭头函数的代码段中只有一行代码，可以省略return
+    // console.log( fn2(10,20) );
+
+
+    // // 三种函数实际上都可以作为函数的参数使用，在这种情况下，实际上就会存在一些细微的区别。
+    // var arr1  = ['a', '1', '10', '102', 11,51,31,32,33,40, 'w', 'c']
+    // // 1. 把普通函数作为参数传递
+    // function fn(a,b){
+    //     return a-b  // 正序
+    //     // return b-a     // 倒序
+    // }
+    //
+    // // 数组排序，按数字大小排序，忽略字母
+    // arr1.sort(fn)
+    // console.log(arr1);
+
+    // // 2. 把普通匿名函数作为参数传递
+    // var arr1  = ['a', '1', '10', '102', 11,51,31,32,33,40, 'w', 'c']
+    // arr1.sort(function(a, b){
+    //     // return a-b;
+    //     return b-a;
+    // })
+    // console.log(arr1)
+
+
+    // // 3. 把箭头函数作为参数传递
+    // var arr1  = ['a', '1', '10', '102', 11,51,31,32,33,40, 'w', 'c']
+    // arr1.sort((a, b)=>a-b); // 正序
+    // // arr1.sort((a, b)=>b-a); // 倒序
+    // console.log(arr1)
+
+
+    /**
+     * 箭头函数与匿名函数的区别
+     */
+    // // 案例1：
+    // class Bloom{
+    //     constructor(time) {
+    //         this.time = time;
+    //         this.t = null;
+    //     }
+    //     has_time(){
+    //         // 倒计时功能
+    //         if(this.time>0){
+    //             clearInterval(this.t);
+    //             // this.t = setInterval(function(){ // 匿名函数中，this代表的window，当前匿名函数实际上是被setInterval调用的，而setInterval实际上时window对象提供的，所以this代表的window对象
+    //             this.t = setInterval(()=>{  // 箭头函数中，this.代表的是Bloom的实例对象，箭头函数会复刻父级作用域下的this
+    //                 console.log(`this.time=${this.time}`, this);
+    //                 this.time = this.time - 1;
+    //                 if(this.time < 1){
+    //                     console.log("爆炸！！！");
+    //                 }
+    //             }, 1000);
+    //         }
+    //     }
+    // }
+    //
+    // var b = new Bloom(3600)
+    // b.has_time()
+
+
+    // 案例2：
+    var xiaoming = {
+        age: 18,
+        name: "小明",
+    }
+
+    // xiaoming.say = ()=>{ // 使用箭头函数，箭头函数会把父级作用域下的this复刻到函数内部，则this指向window对象      ===>   我叫,我今年undefined岁!
+    xiaoming.say = function(){ // 使用匿名函数，会把this指向调用当前方法的对象，则this当前对象   ===>   我叫小明,我今年18岁!
+        console.log('this=',this);
+        console.log(`我叫${this.name},我今年${this.age}岁!`);
+    }
+    console.log(xiaoming);
+    xiaoming.say();
+
+    /**
+     * 箭头函数与匿名函数在作用域上表现不同。
+     * 匿名函数，会this指向到调用当前方法的对象，
+     * 箭头函数，会把this指向到父级作用域上的this。
+     */
+    // js中的作用域分全局作用域与局部作用域。
+    // 其中，函数外就属于全局作用域，而函数内就属于局部作用域。
+    // 全局作用域下的变量，可以在任意位置上使用，叫全局变量，一旦定义以后，直到当前网页代码执行结束以后才会被浏览器回收。
+    // 局部作用域下的变量，只能在当前函数中使用，叫局部变量，在函数运行时创建，函数运行结束以后被浏览器回收，下一次函数被调用，则会被再次创建。
+
+    /**
+     * 全局变量具有穿透性，可以直接在函数内部调用或修改值
+     * @type {number}
+     */
+    // var num = 10; // 在函数外的变量可以直接使用到函数内部
+    // function fn1(){
+    //     console.log(num); // 10
+    //     num = 20; // 对全局变量进行重新赋值
+    //     function fn2(){
+    //         console.log(num); // 20
+    //     }
+    //     fn2();
+    // }
+    // fn1();
+    // console.log(num); // 20
+
+
+    // var num = 10; // 在函数外的变量属于全局变量，但是当全局变量与局部变量一样时，函数内会优先使用局部变量
+    // function fn1(){
+    //     console.log(num); // undefined
+    //     var num = 20; // 这句代码与上面的不一样的时，多了一个var关键字
+    //     function fn2(){
+    //         console.log(num); // 20
+    //     }
+    //     fn2();
+    // }
+    // fn1();
+    // console.log(num); // 10
+
+
+    // var num = 10; // 在函数外的变量属于全局变量，但是当全局变量与局部变量一样时，函数内会优先使用局部变量
+    // function fn1(){
+    //     console.log(num); // undefined
+    //     // 这句代码与上面的不一样的是，var换成了let关键字，
+    //     // let与var一样也是可以声明变量，但是不一样的是2点：
+    //     //             1. let的作用域范围时花括号，var的作用域范围时函数
+    //     //             2. 在局部作用域下，let关键字声明的变量，必须严格按照先声明后调用来执行的。
+    //     let num = 20;
+    //     function fn2(){
+    //         console.log(num); // 20
+    //     }
+    //     fn2();
+    // }
+    // fn1();
+    // console.log(num); // 10
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 对象的创建
+     */
+    // 1. 通过字面量{}创建
+    var xiaoming1 = {};   // 空对象
+    var xiaoming2 = {     // 有属性有方法的对象
+        age: 18,
+        sex: true,
+        desc(){
+            console.log("js对象的方法");
+            console.log(this.age, this.sex); // this表示当前对象
+        }
+    }
+    console.log(xiaoming1);
+    console.log(xiaoming2);
+    // 对象的属性调用
+    console.log(xiaoming2.age)
+    // 对象的方法调用
+    xiaoming2.desc()
+
+    // 2. 通过系统对象Object来创建
+    var xiaoming3 = new Object(); // 空对象
+    var xiaoming4 = Object(); // 空对象
+    // Object是javascript提供给开发者创建空对象使用的.
+    // Object内部基本都是一些不对外开放的方法属性
+    // Object是javascript内部的一切对象的基本对象[构造函数]
+    console.log(xiaoming3);
+    console.log(xiaoming4);
+
+    // 3. 通过构造函数来创建对象
+    function Humen(name="匿名对象",age=0){
+        this.name = name;
+        this.age  = age;
+        this.say  = function(){
+            console.log("我是Humen里面的代码");
+        }
+    }
+
+    var xiaoming5 = new Humen("小明", 17);
+    console.log(xiaoming5);
+
+
+    //4. 通过类创建对象
+    // 类名 后面必须跟着花括号，花括号内部就是类里面的代码
+    // 原生js中的类只存在实例方法或实例属性，没有类属性或类方法
+    class Person{
+        // 构造函数，方法名必须叫constructor，等同于 python的类中的__init__方法
+        constructor(name, age) {
+            this.name = name;
+            // 等同于python里面的 self.age = age
+            this.age = age;
+        }
+        say(){
+            // 对象的方法，将来在类被实例化的时候，可以让对象调用
+            console.log(`我叫${this.name}，我今年${this.age}岁！`)
+        }
+    }
+
+    var xiaoming6 = new Person("小明",18)
+    xiaoming6.say();
+
+</script>
+</body>
+</html>

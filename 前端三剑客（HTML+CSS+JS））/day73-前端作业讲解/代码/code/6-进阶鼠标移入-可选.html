@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>作业</title>
+  <style>
+  *{ padding: 0;margin: 0; }
+  ul,li{list-style: none; }
+  ul{
+    width: 868px;
+    height: 374px;
+    background: #f5f5f5;
+    margin: 10px auto 0;
+  }
+  ul li{
+    position: relative;
+    float: left;
+    margin: 1px 1px 0px;
+    height: 92px;
+    width: 122px;
+    overflow: hidden;
+  }
+  #opacity{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 122px;
+    height: 92px;
+    background: #000;
+    opacity: .8;
+    cursor: pointer;
+  }
+  #opacity img{
+    float: right;
+    margin: 14px 12px 10px 0px;
+  }
+  #opacity p{
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+  }
+  #opacity input{
+    display: block;
+    margin: 15px auto 0;
+    background: #f00;
+    width: 63px;
+    height: 18px;
+    line-height: 18px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+  }
+  .clear{
+    clear: both;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    <li data-number="15.0">
+      <img src="assets/images/1.png" alt="">
+      <div id="opacity">
+        <img src="assets/images/lve.png" alt="">
+        <div class="clear"></div>
+        <p>关注人数 15.0万</p>
+        <input type="button" value="点击进入">
+      </div>
+    </li>
+    <li data-number="20.0"><img src="assets/images/2.png" alt=""></li>
+    <li data-number="7.0"><img src="assets/images/3.png" alt=""></li>
+    <li data-number="15.3"><img src="assets/images/4.png" alt=""></li>
+    <li data-number="15.6"><img src="assets/images/5.png" alt=""></li>
+    <li data-number="24.0"><img src="assets/images/6.png" alt=""></li>
+    <li data-number="39.0"><img src="assets/images/7.png" alt=""></li>
+    <li data-number="8.0"><img src="assets/images/1.png" alt=""></li>
+    <li data-number="55.0"><img src="assets/images/2.png" alt=""></li>
+    <li data-number="43.0"><img src="assets/images/3.png" alt=""></li>
+    <li data-number="12.0"><img src="assets/images/4.png" alt=""></li>
+    <li data-number="34.0"><img src="assets/images/5.png" alt=""></li>
+    <li data-number="22.0"><img src="assets/images/6.png" alt=""></li>
+    <li data-number="12.0"><img src="assets/images/7.png" alt=""></li>
+    <li data-number="21.0"><img src="assets/images/1.png" alt=""></li>
+    <li data-number="42.0"><img src="assets/images/2.png" alt=""></li>
+    <li data-number="22.0"><img src="assets/images/3.png" alt=""></li>
+    <li data-number="52.0"><img src="assets/images/4.png" alt=""></li>
+    <li data-number="21.0"><img src="assets/images/5.png" alt=""></li>
+    <li data-number="17.0"><img src="assets/images/6.png" alt=""></li>
+    <li data-number="12.0"><img src="assets/images/7.png" alt=""></li>
+    <li data-number="3.0"><img src="assets/images/1.png" alt=""></li>
+    <li data-number="1.0"><img src="assets/images/2.png" alt=""></li>
+    <li data-number="0.5"><img src="assets/images/3.png" alt=""></li>
+    <li data-number="1.4"><img src="assets/images/4.png" alt=""></li>
+    <li data-number="2.0"><img src="assets/images/5.png" alt=""></li>
+    <li data-number="4.0"><img src="assets/images/6.png" alt=""></li>
+    <li data-number="5.0"><img src="assets/images/7.png" alt=""></li>
+  </ul>
+<script>
+  var ul = document.querySelector("ul");
+  var opacity = document.querySelector("#opacity")
+  ul.addEventListener("mouseover", show);
+  var timer = null;
+  function show(event){
+    if(event.target.parentElement.tagName === "LI"){
+      opacity.style.height=0;
+      clearInterval(timer);
+      timer = setInterval(()=>{
+        if(opacity.offsetHeight<92){
+          opacity.style.height = opacity.offsetHeight*1.01+1 + "px";
+        }else{
+          clearInterval(timer);
+        }
+      },5)
+      event.target.parentElement.appendChild(opacity);
+    }
+  }
+</script>
+</body>
+</html>

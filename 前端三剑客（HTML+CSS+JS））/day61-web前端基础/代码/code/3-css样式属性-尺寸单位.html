@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;
+        }
+    html{
+        font-size: 20px;
+    }
+    div{
+        font-size: 16px;
+        background-color: red;
+    }
+    .box1{
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
+    .box2{
+        width: 1em; /* 1个字符的尺寸 */
+        height: 1em;
+        line-height: 16px;
+    }
+    .box3{
+        width: 1rem; /* 相对于根元素(即html元素)font-size计算值的倍数 */
+        height: 1rem;
+        line-height: 16px;
+    }
+    .box4{
+        width: 100vw; /* 把视口纵向切割成左右100分， 1vw就是1份；*/
+        height: 100vh; /* 把视口横向切割成上下100分，1vh就是1份；*/
+    }
+    </style>
+</head>
+<body>
+<!--    <div class="box1">中</div>-->
+<!--    <div class="box2">中</div>-->
+<!--    <div class="box3">中</div>-->
+    <div class="box4">中</div>
+</body>
+</html>

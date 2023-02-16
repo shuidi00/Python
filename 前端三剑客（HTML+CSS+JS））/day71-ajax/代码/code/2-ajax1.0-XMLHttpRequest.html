@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .data-table{
+        border-collapse: collapse;
+        width: 800px;
+        display: none;
+    }
+    .data-table td, .data-table th{
+        font-weight: normal;
+        border:1px solid red;
+        text-align: center;
+        width: 200px;
+    }
+    </style>
+</head>
+<body>
+<input type="text" name="city" value="北京" placeholder="请输入一个国内的城市名称"><button>获取天气</button>
+<table class="data-table">
+    <tr>
+        <th>日期</th>
+        <th>类型</th>
+        <th>风力</th>
+        <th>温度</th>
+    </tr>
+</table>
+</body>
+<script>
+    var btn = document.querySelector("button")
+    var city = document.querySelector('input[name="city"]')
+    let data = document.querySelector(".data-table")
+    let old_conent = data.innerHTML // 原来的内容
+
+    btn.addEventListener("click", get_weather)
+
+    function get_weather(){
+        // 原生js的ajax: 基于XMLHttpRequest实现ajax1.0版本，有5个步骤
+        // 1. 创建ajax对象
+        var xhr = new XMLHttpRequest()
+        // console.log(xhr.readyState)  // 0
+        // 2. 打开网络请求
+        // 参数1：method，http请求，默认XMLHttpRequest只实现了get与post请求
+        // 参数2：url，请求的资源路径，可以携带查询字符串
+        xhr.open("get", `http://wthrcdn.etouch.cn/weather_mini?city=${city.value}`)
+        // console.log(xhr.readyState)  // 1
+        // 3. 发送网络请求
+        // 参数1：可选参数，如果是post请求，则填写请求体
+        //       请求体必须按查询字符串格式编写，属性=值&属性=值&属性=值.....
+        xhr.send()
+        // 4. 监听http通信状态
+        xhr.onreadystatechange = ()=>{
+            // 4.1 判断ajax的状态
+            /**
+             * readyState属性表示ajax的使用状态
+             * 0 表示刚创建ajax对象，还没有创建http网络请求
+             * 1 表示ajax对象已经创建http网络请求，但是还没有发送请求
+             * 2 表示ajax已经发送了http请求，但是服务端还没有接收到请求
+             * 3 表示服务端已经接收到客户端的http请求，但是没有处理完成
+             * 4 表示服务端已经处理完成客户端的http请求，并把处理结果返回给客户端了
+             */
+            // 5. 判断xhr执行状态已经执行完成，并且http响应状态码是200才获取服务端的数据
+            if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    // console.log(xhr.response)     // 获取原生的响应数据[例如图片，音频等]
+                    // console.log(xhr.responseText) // 获取纯文本格式数据
+                    // console.log(xhr.responseXML)  // 获取xml格式的数据
+                    let response = JSON.parse(xhr.response)
+                    console.log(response)
+                    data.style.display = "block"
+                    data.innerHTML = old_conent
+                    console.log(response.data.forecast)
+                    for (let info of response.data.forecast) {
+                         data.innerHTML+=`<tr>
+                            <td>${info.date}</td>
+                            <td>${info.type}</td>
+                            <td>${info.fengxiang} ${info.fengli.replace(/<!\[CDATA\[(.*?)\]\]>/,"$1")}</td>
+                            <td>${info.low} ~ ${info.high}</td>
+                            </tr>`
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 字符串在js中有2种，分别是单行字符串（普通字符串）与多行字符串（文本字符串、模板字符串）。
+// 其中，单行字符串可以使用单引号或双引号圈起来就是单行字符串。
+// 使用反引号圈起来的，就是多行字符串。
+
+// 单引号声明字符串
+var str1 = 'hello world';
+console.log(typeof str1); // string
+
+// 双引号单行字符串
+var str2 = "hello world";
+console.log(typeof str2); // string
+
+
+// 多行文本字符串
+var str3 = `hello world`;
+console.log(typeof str3); // string
+
+// 字符串的使用注意事项.
+// 1. 单行字符串，内容是不能换行的。所有的换行通过转义字符\r\n来完成.
+var str4 = "hello\r\nworld";
+console.log(str4);
+
+
+// var str5 = "hello
+// world";   // 这里报错，单行字符串内部不能内容换行，必须保证引号开始与结束在同一行出现
+
+// 2. 多行文本字符串中编写变量会被js识别转换成值
+var str5 = 'world'
+var str6 = `hello ${str5}`; //hello world  写在多行文本字符串中的 ${变量名}会被js进行识别并转换成变量的值
+console.log(str6);
+
+// 3. 单行字符串中编写变量是不会被js识别的。
+var str7 = "world"
+var str8 = "hello ${str7}"
+console.log(str8); // hello ${str7}
+
+</script>
+</body>
+</html>

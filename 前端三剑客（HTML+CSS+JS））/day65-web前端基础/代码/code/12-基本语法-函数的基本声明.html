@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /**
+         * 普通函数
+         */
+        // func(); // 普通函数可以先调用，后声明
+        // function func(){
+        //     console.log("普通函数执行了")
+        // }
+
+        /**
+         * 匿名函数
+         */
+        func = function(){
+            console.log("匿名函数执行了");
+        }
+        func(); // 匿名函数必须先赋值，后调用
+
+        /**
+         * 箭头函数[是匿名函数的新型写法，所以必须先赋值，后调用]
+         */
+        func = ()=>{
+            console.log("箭头函数执行了")
+        }
+        func();
+
+    </script>
+</body>
+</html>

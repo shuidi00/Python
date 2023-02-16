@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">父元素
+    <div id="son"> 子元素 </div>
+</div>
+<ul>
+    <li><a href="">网站1</a></li>
+    <li><a href="">网站2</a></li>
+    <li><a href="">网站3</a></li>
+</ul>
+<p id="p1">一段长长的文本</p>
+<p class="p2">第一段长长长长长长长长的文本</p>
+<p class="p2 p3">第二段长长长长长长长长的文本</p>
+<p class="p3 p4">第三段长长长长长长长长的文本</p>
+<p class="p3 p2 p4">第四段长长长长长长长长的文本</p>
+
+<img src="image-20220617122320261.png" alt="">
+<img src="image-20220617122320261.png" alt="">
+<img src="image-20220617122320261.png" alt="">
+<img src="image-20220617122320261.png" alt="">
+
+<form action="">
+    账号：<input type="text" name="username" value="root"><br>
+    密码：<input type="password" name="password" value="123"/><br>
+    <input type="submit" value="登录">
+</form>
+
+<script>
+    // DOM 元素获取,有2种写法获取元素，分别是直接获取元素与间接获取元素。这里我们先学习直接获取元素
+    // 所谓的直接获取元素，只要指代的就是通过document对象提供的操作方法在整个网页文档中全局查找提取元素
+    // 一般常用的用5种直接获取元素方式
+
+    // // 1.1 document.getElementById("ID值")
+    // //     通过元素的id属性值获取元素[单一元素]
+    // var box = document.getElementById("box");
+    // console.log(box.innerHTML);  // 获取元素的html内容，innnerHTML是属于元素对象的内部的内容（包括子元素的内容）,如果不是元素对象,根本没有这个属性
+    // console.log(box.innerText);  // 获取元素的文本内容[没有HTML标签]
+    //
+    // var son = document.getElementById("son");
+    // son.innerHTML = "子元素的新内容";   // 修改指定元素的内容
+    //
+    // var p1 = document.getElementById("p1")
+    // p1.innerHTML = "短短的文本";
+
+    // 1.2 document.getElementsByTagName("标签名")
+    //      通过元素的标签类型来获取元素[元素集合,也就是类数组]
+
+    // var p_collection = document.getElementsByTagName("p"); // 注意：s！！
+    // // console.log(p_collection, p_collection.length);
+    // // console.log(p_collection.innerHTML);     // 此处无法获取HTML数据,因为p_collection是一个数组,数组根本不可能有html内容
+    // // console.log(p_collection[0].innerHTML); // 要获取的实际上是数组中的元素成员的内容
+    // // 批量修改或读取元素的内容
+    // for(let p of p_collection){
+    //     console.log(p.innerHTML);
+    //     p.innerHTML = "hello world";
+    // }
+
+    // // 1.3 document.getElementsByClassName("类名")
+    // //     通过元素的class属性值来获取元素[元素集合]
+    // // 根据一个class属性值获取元素集合
+    // var data = document.getElementsByClassName("p2");
+    // for(let item of data){
+    //     console.log(item.innerHTML);
+    // }
+    // // 第一段长长长长长长长长的文本
+    // // 第二段长长长长长长长长的文本
+    // // 第四段长长长长长长长长的文本
+    //
+    // // 根据多个class属性值获取元素集合，多个class属性值之间使用空格隔开，顺序不重要。
+    // var data = document.getElementsByClassName("p3 p4");   // 获取同时具备.p2和.p3的元素
+    // for(let item of data){
+    //     console.log(item.innerHTML);
+    // }
+    // // 第三段长长长长长长长长的文本
+    // // 第四段长长长长长长长长的文本
+
+
+    // // 1.4 document.getElementsByName("name属性值");
+    // var u_list = document.getElementsByName("username")
+    // var username = u_list[0]
+    // console.log(username.value)
+
+    // // 1.5 document.querySelector("css选择符");
+    // //     通过css选择符来获取元素[单一元素]
+    // var p1 = document.querySelector("#box #son"); // 根据包含选择符获取元素
+    // console.log(p1);
+
+    // // 1.6 document.querySelectorAll("css选择符");
+    // //     通过css选择符来获取元素[元素集合]
+    // var p_collection = document.querySelectorAll(".p3");
+    // for(let p of p_collection){
+    //     p.innerHTML = "querySelectorAll ===> hello world";
+    // }
+
+    // // 1.7 document.evaluate('xpath路径', document).iterateNext() 基于xpath路径获取
+    // // 基于xpath获取指定ID元素
+    // var ele = document.evaluate('//*[@id="son"]', document).iterateNext() // 获取xpath提取的第一个元素
+    // // 基于xpath获取指定class元
+    // var ele = document.evaluate('//*[@class="p2"]', document).iterateNext() // 获取xpath提取的第一个元素
+    // console.log(ele);
+
+    // // 1.8 直接获取HTML元素
+    // // var ele = document.querySelector("html");
+    // var ele = document.documentElement;
+    // console.log(ele);
+
+    // // 1.9 直接获取body元素
+    // var ele = document.body;
+    // console.log(ele);
+    //
+    // // 1.10 直接获取Hhead元素
+    // var ele = document.head;
+    // console.log(ele);
+
+    // // 1.11 获取页面中所有的超链接
+    // console.log(document.links);
+    //
+    // // 1.12 获取页面中所有的图片
+    // console.log(document.images)
+
+    // 1.13 获取页面中所有的图片
+    console.log(document.forms)
+
+</script>
+</body>
+</html>

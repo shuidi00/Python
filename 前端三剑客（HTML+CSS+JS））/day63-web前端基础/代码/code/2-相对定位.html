@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    div{
+        width: 150px;
+        height: 150px;
+        background: red;
+    }
+    .parent{
+        width: 400px;
+        height: 300px;
+    }
+    .box1{
+        width: 120px;
+        height: 120px;
+        background: orange;
+    }
+    .box2{
+        background: blue;
+    }
+    .parent0{
+        position: relative; /* 父级元素设置为相对定位，但是不设置坐标 */
+        /*overflow: hidden;  !* 子元素虽然作为了绝对定位元素，但是从HTML的标签结构上（DOM树）上，还是属于父级元素的内容，因此超出部分会被隐藏。 *!*/
+    }
+    .parent0 .box1{
+        position: absolute; /* 子元素设置为绝对定位，此时元素就会脱离文档流，不再占用原来的文档流空间 */
+        right: -20px;
+        bottom: -20px;
+    }
+    .parent1 .box1{
+        background: orange;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    </style>
+</head>
+<body>
+<!--    <h3>当子元素设置为绝对定位，而父元素设置为相对定位时，子元素相对于父元素的4个边线做定位。</h3>-->
+<!--    <div class="parent parent0">-->
+<!--        <div class="box1"></div>-->
+<!--        <div class="box2"></div>-->
+<!--    </div>-->
+
+<!--    <h3>当子元素设置为绝对定位，而父元素没有设置定位时，会继续照到设置了定位元素的祖辈元素，如果所有的祖辈元素都没有设置为定位，则当前子元素相对于body元素的4个边线做定位</h3>-->
+<!--    <div class="parent parent1" style="position: relative">-->
+<!--        <div style="width: 200px;height: 200px;background: greenyellow;">-->
+<!--            <div class="box1"></div>-->
+<!--            <div class="box2"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <h3>父子皆为绝对定位元素时，子元素相对于父元素做定位，而父元素则相对于它的父级定位元素做定位，如果找不到，则父元素相对于body做定位。</h3>-->
+<!--    <div class="parent parent2">-->
+<!--        <div style="width: 300px;height: 300px;background: greenyellow; position: absolute; bottom: 0; right: 0;">-->
+<!--            <div class="box1" style="position: absolute; top: 20px; right: 20px;"></div>-->
+<!--            <div class="box2"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <h3>子元素相对于父元素做绝对定位，并实现居中效果。</h3>
+    <div style="width: 400px;height: 400px; position:relative;">
+            <div style="width: 100px;height: 100px; background: orange; position: absolute; left: 0; right: 0; margin: auto">采用定位+边距，左右居中</div>
+            <div style="width: 100px;height: 100px; background: yellow; position: absolute; top: 0; bottom: 0; margin: auto">采用定位+边距，上下居中</div>
+            <div style="width: 100px;height: 100px; background: yellow; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;">绝对居中</div>
+    </div>
+</body>
+</html>

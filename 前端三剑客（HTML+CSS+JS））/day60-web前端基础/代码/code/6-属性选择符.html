@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    input[type="text"]{
+        border: 1px solid  red;
+        outline-color: red; /* 输入框的焦点外边线-颜色：红色 */
+    }
+    input[disabled]{
+        border: 0; /* 去除边框 */
+    }
+    input[value*='登录']{
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" value="1.0" disabled><br>
+        账号: <input type="text"><br>
+        密码: <input type="password"><br>
+        <input type="button" value="登录">
+        <input type="button" value="重新登录">
+    </form>
+</body>
+</html>

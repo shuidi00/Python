@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    ul{display: flex; float: left; flex-wrap: wrap; list-style: none;padding: 0; margin: 0; margin-left: 50px; margin-bottom: 50px; width: 640px; height: 200px; background: gray;}
+    li{width: 50px; min-height: 42px; line-height: 42px; text-align: center; margin: 5px; background: red; color: white;}
+    .box1{align-content: flex-start;}
+    .box1 li:nth-child(1){flex-grow: 1;}
+    .box1 li:nth-child(2){flex-grow: 2;}
+    .box1 li:nth-child(3){flex-grow: 1;}
+    </style>
+</head>
+<body>
+    <ul class="box1">
+        <li>1. 首页</li>
+        <li>2. 搜索</li>
+        <li>3. 活动</li>
+    </ul>
+</body>
+</html>

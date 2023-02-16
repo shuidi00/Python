@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="change">切换</button>
+    <br>
+    <img class="box" src="" alt="">
+    <script>
+    // 最基本的图片切换
+    var images_list = ["assets/images/banner-1.jpg", "assets/images/banner-2.jpg", "assets/images/banner-3.jpg"]
+    var box = document.querySelector(".box")
+    var change = document.querySelector(".change")
+    var currentIndex = 0;
+    box.src=images_list[currentIndex];
+
+    function start(){
+        currentIndex++;
+        if(currentIndex>=images_list.length){
+            currentIndex = 0;
+        }
+        box.src=images_list[currentIndex];
+    }
+
+    change.onclick = start;
+
+    </script>
+</body>
+</html>

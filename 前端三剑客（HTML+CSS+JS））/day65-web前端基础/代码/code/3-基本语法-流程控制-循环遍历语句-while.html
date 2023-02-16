@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <script>
+    /**
+     * while基本使用
+     */
+    // 输出1-10之间的整数
+    // var num = 1;
+    // while (num<=10){
+    //     // console.log(num);
+    //     // // num+=1;
+    //     // num++;
+    //     console.log(num++);
+    // }
+
+    // // 输出1-10之间的偶数
+    // var num = 1;
+    // while (num<=10){
+    //     if(num%2===0){
+    //         console.log(num);
+    //     }
+    //     num++;
+    // }
+
+    // // 输出10-0之间的偶数
+    // var num = 10;
+    // while (num>=0){
+    //     if(num%2===0){
+    //         console.log(num);
+    //     }
+    //     num--;
+    // }
+
+    // // 循环统计
+    // // 输入1-100之间的整数和
+    // var sum = 0;
+    // var num = 1;
+    // while (num<=100){
+    //     sum+=num++;
+    // }
+    // console.log(sum); // 5050
+
+    // 循环输出数组的成员
+    // var data = ["A", "B", "C", "D"]
+    // var key = 0;
+    // while (key < data.length){
+    //     console.log(data[key++])
+    // }
+
+    // 循环js中获取的元素列表
+    // document.querySelector(css选择符);  // 获取一个HTML元素对象
+    // document.querySelectorAll()  // 获取多个HTML元素对象
+
+    var li_list = document.querySelectorAll("ul li");
+    var key = 0;
+    // js中推荐变量的命名风格时小驼峰写法
+    var colorList = ["red", "orange", "yellow", "green", "#00ffff", "blue", "#ff00ff"]
+    while (key < li_list.length){  // 小括号不管写的是什么，最终都会转成布尔值来进行判断。
+        // 获取表单元素以外的双标签元素的内容(innerHTML)
+        console.log(li_list[key].innerHTML);
+        // 修改双标签元素的内容
+        li_list[key].innerHTML = `第${key}个元素`
+        // 修改元素的css行内样式
+        li_list[key].style.backgroundColor = colorList[key];
+        // 避免死循环，让key自增，慢慢让while条件变得不成立
+        key++;
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="closecurrent">关闭当前页面</button>
+    <br>
+    <input type="text" name="baidu"><button class="search">搜索</button><button class="closepage">关闭页面</button>
+    <script>
+    var baidu = document.querySelector('input[name="baidu"]')
+    var search = document.querySelector('.search')
+    var closepage = document.querySelector('.closepage')
+    var closecurrent = document.querySelector('.closecurrent')
+    var w;
+    search.onclick = ()=>{
+        console.log(baidu.value);
+        // 替换当前窗口url，访问对应页面
+        // location.href=`https://www.baidu.com/s?wd=${baidu.value}`
+        // 新建窗口再打开url地址
+        w = open(`https://www.baidu.com/s?wd=${baidu.value}`, '_blank')
+        // open(`https://www.baidu.com/s?wd=${baidu.value}`, '_self')
+        // open(`https://www.baidu.com/s?wd=${baidu.value}`, '_top')
+    }
+    /**
+     * open(url=URL地址，target=打开方式, windowname=窗口名称)
+     * URL地址，新页面的地址
+     * 打开方式，就是a标签的target属性值
+     *   _self 在当前页面窗口中打开url地址
+     *   _blank 在新建浏览器标签页中打开url地址
+     *   _top   在顶级页面窗口中打开url地址
+     * 窗口名称，就是新开浏览器窗口，绑定该窗口为指定名称，绑定后续所有的浏览器操作
+     *
+     * 返回值就是新页面的window对象
+     */
+
+
+    closepage.onclick = ()=>{
+        // w就是上面open打开的浏览器页面的窗口对象，通过窗口对象就可以关闭指定窗口
+        w.close()
+    }
+
+    closecurrent.onclick = ()=>{
+        close(); // 相当于 window.close()，默认情况下window代表的就是当前页面窗口对象
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    setTimeout(()=>{
+        alert(1000); // 阻塞代码
+    })
+    document.write("hello") // 单线程导致
+    </script>
+</body>
+</html>
